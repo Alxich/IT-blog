@@ -1,0 +1,16 @@
+#admin-content {
+    width: 75%;
+    padding: 40px 25px;
+
+    .main-title {
+        @include main-title(left);
+        margin-bottom: 60px;
+    }
+
+    form {
+        button {
+            max-width: 220px;
+            margin: 0 auto;
+        }
+    }
+}

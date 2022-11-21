@@ -1,0 +1,55 @@
+#admin-bar {
+  background-color: $adminbar-bg;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+  width: 25%;
+  padding: 45px 0;
+
+  .admin-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .user-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 260px;
+      width: 260px;
+      overflow: hidden;
+      margin-bottom: 25px;
+
+      img {
+        height: 260px;
+        width: 260px;
+      }
+    }
+
+    .title {
+      @include main-title(center);
+    }
+  }
+
+  .navigation {
+    width: 100%;
+
+    li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-top: 1px solid $purple;
+      height: 65px;
+      width: 100%;
+      padding: 15px;
+
+      &:last-child {
+        border-bottom: 1px solid $purple;
+      }
+    }
+  }
+}

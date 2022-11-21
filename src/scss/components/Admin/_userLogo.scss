@@ -1,0 +1,38 @@
+.user-logo {
+  position: relative;
+  display: block;
+  height: $user-logo-sz;
+  width: $user-logo-sz;
+  cursor: pointer;
+
+  img {
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px $purple-admin-logo-hover;
+    height: $user-logo-sz;
+    width: $user-logo-sz;
+    transform: scale(1);
+    transition: all $transition-slow;
+  }
+
+  .case {
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all $transition-slow;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.025);
+    }
+    
+    .case {
+      box-shadow: 0 0 0 5px $purple-admin-logo-hover inset;
+    }
+  }
+}

@@ -5,6 +5,8 @@ import UserInterface from "./interfaces/User";
 
 import logo from "./images/logotype.svg";
 import phone from "./images/icons/phone.svg";
+import userLogo from "./images/userlogo.png";
+import AdminInterface from "./interfaces/Admin";
 
 function App() {
   const [menuOpen, setMenuOpen] = React.useState();
@@ -55,16 +57,6 @@ function App() {
             <img src={logo} alt="brand-logo" />
           </div>
           <div className="actions-nav container flex-row flex-space width-auto to-right">
-            <div id="menu_button">
-              <input
-                type="checkbox"
-                id="menu_checkbox"
-                onClick={() => handleChangeMenuStatus(menuOpen)}
-              />
-              <label htmlFor="menu_checkbox" id="menu_label">
-                <div id="menu_text_bar"></div>
-              </label>
-            </div>
             <ul className="navigation container flex-row flex-space width-auto">
               {navigation.map((item, i) => {
                 return <li key={`${item}__${i}`}>{item}</li>;
@@ -75,6 +67,20 @@ function App() {
               <span>
                 +44 {"("}987{")"} 887-87
               </span>
+            </div>
+            <div className="user-logo">
+              <img src={userLogo} alt="userIconLogo" />
+              <span className="case"></span>
+            </div>
+            <div id="menu_button">
+              <input
+                type="checkbox"
+                id="menu_checkbox"
+                onClick={() => handleChangeMenuStatus(menuOpen)}
+              />
+              <label htmlFor="menu_checkbox" id="menu_label">
+                <div id="menu_text_bar"></div>
+              </label>
             </div>
           </div>
         </div>
@@ -88,6 +94,7 @@ function App() {
       </header>
       <main className="wrapper">
         <UserInterface />
+        {/* <AdminInterface /> */}
       </main>
       <footer className="colophon">
         <div className="container full-height">
