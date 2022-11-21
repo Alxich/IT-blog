@@ -17,7 +17,8 @@ form {
     }
   }
 
-  input, textarea {
+  input,
+  textarea {
     background-color: $input-bg;
     display: flex;
     justify-content: flex-start;
@@ -32,8 +33,10 @@ form {
     margin-bottom: 21px;
     transition: all $transition-normal;
 
-    &:hover, &:target, &:active {
-       border: 1px solid $purple;
+    &:hover,
+    &:target,
+    &:active {
+      border: 1px solid $purple;
     }
 
     &::placeholder {
@@ -46,9 +49,11 @@ form {
     min-height: $area-height;
     resize: vertical;
 
-    &:hover, &:target, &:active {
+    &:hover,
+    &:target,
+    &:active {
       border: 1px solid $purple;
-   }
+    }
   }
 }
 
