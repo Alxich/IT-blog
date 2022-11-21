@@ -1,0 +1,94 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  & > * {
+    @include text-style($black);
+  }
+
+  li {
+    position: relative;
+    display: block;
+    margin: 0 $navigation-gap;
+    transition: all $transition-normal;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $purple;
+      display: block;
+      border-radius: 2px;
+      height: 2px;
+      width: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: 0 auto;
+      transition: all $transition-normal;
+    }
+
+    &:hover {
+      color: $purple;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &.buttons {
+    justify-content: space-between;
+    padding-top: 60px;
+
+    &.nav-items {
+      justify-content: center;
+    }
+
+    .container {
+      .item {
+        position: relative;
+        display: block;
+        @include text-style($black);
+        margin: 0 10px;
+        cursor: pointer;
+
+        &.pass {
+          cursor: default;
+        }
+
+        &:not(.pass)::before {
+          position: absolute;
+          content: "";
+          background-color: $purple;
+          display: block;
+          height: 0;
+          width: 0;
+          bottom: 2px;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          transition: all $transition-normal;
+        }
+
+        &:not(.pass):hover,
+        &:not(.pass).active {
+          color: $purple;
+
+          &::before {
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+          }
+
+          &.active {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "./libs/fonts";
+@import "./variables";
+@import "./libs/normalize";
+
+@import "./components/index";
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.App > .container {
+  position: relative;
+  background-color: $white;
+  transition: transform 0.7s ease-in-out;
+  z-index: 2;
+}
+
+.wrapper {
+  min-height: 70vh;
+  max-width: $page-width;
+  width: 100%;
+  margin: 0 auto;
+  padding: $header-height 0 0 0;
+  z-index: 1;
+}

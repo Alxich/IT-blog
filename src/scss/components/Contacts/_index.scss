@@ -1,0 +1,130 @@
+#contacts {
+  padding: 100px 15px 140px 15px;
+
+  .contacts-form {
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 8px 40px rgba(8, 24, 111, 0.2);
+    border-radius: 20px;
+    max-width: 560px;
+    width: 100%;
+    padding: 40px 60px 60px 60px;
+
+    .title {
+      @include main-title(left);
+      width: 100%;
+    }
+  }
+
+  .contacts-info {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .title {
+      @include main-title(left);
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      align-items: center;
+
+      &.info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+
+        li {
+          display: flex;
+          justify-content: center;
+          flex-direction: row-reverse;
+          align-items: center;
+          margin-bottom: 20px;
+
+          span {
+            @include text-style($purple);
+            transition: all $transition-normal;
+            margin-left: 10px;
+          }
+
+          &:hover {
+            span {
+              color: $purple-item-cat;
+            }
+          }
+
+          img {
+            width: $icons-info-sz;
+            height: $icons-info-sz;
+          }
+        }
+      }
+
+      &.socials {
+        li {
+          margin-right: 18px;
+          transition: all $transition-normal;
+
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+      }
+
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #contacts {
+    padding: 80px 15px 120px 15px;
+
+    .contacts-form {
+      max-width: 425px;
+      padding: 20px 40px 40px 40px;
+    }
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  #contacts {
+    padding: 80px 15px 120px 15px;
+    
+    .container {
+      flex-direction: column;
+    }
+
+    .contacts-info {
+      padding-bottom: 60px;
+    }
+
+    .contacts-form {
+      max-width: 425px;
+      padding: 20px 40px 40px 40px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #contacts {
+    padding: 40px 15px 100px 15px;
+
+    .contacts-form {
+      .title {
+        text-align: center;
+      }
+
+      max-width: 425px;
+      padding: 25px;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &.phone-btn {
+    img {
+      display: block;
+      height: 14px;
+      width: 14px;
+    }
+
+    span {
+      @include text-style($purple);
+      transition: all $transition-normal;
+      margin-left: 10px;
+    }
+
+    &:hover span {
+      color: $purple-hover;
+    }
+  }
+
+  &.subscribe,
+  &.send,
+  &.search {
+    background-color: $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    transition: all $transition-normal;
+
+    &:hover {
+      background-color: $purple-hover;
+    }
+
+    img {
+      display: block;
+      height: 20px;
+      width: 20px;
+    }
+
+    span {
+      @include text-style($white);
+      margin-right: 10px;
+    }
+  }
+
+  &.nav {
+    position: relative;
+    background-color: $purple-opacity;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    height: $navigation-button-heigth;
+    padding: $navigation-button-inner-gap;
+    transition: all $transition-normal;
+
+    &:hover {
+      background-color: $purple-nav-hover;
+    }
+
+    &.nav-prev {
+      flex-direction: row-reverse;
+    }
+
+    &.nav-next {
+      flex-direction: row;
+    }
+
+    .text {
+      @include text-style($purple);
+    }
+
+    .arrow {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      height: 10px;
+      width: 10px;
+
+      span {
+        position: absolute;
+        background-color: $purple;
+        height: 1px;
+        width: 8px;
+        transform: translate(-50%, -50%);
+      }
+
+      &.prev {
+        margin-right: $navigation-gap-arrow;
+
+        span {
+          &:first-child {
+            top: 3px;
+            left: 5px;
+            transform: translate(-50%, -50%) rotate(-42deg);
+          }
+
+          &:last-child {
+            top: 8px;
+            left: 5px;
+            transform: translate(-50%, -50%) rotate(42deg);
+          }
+        }
+      }
+
+      &.next {
+        margin-left: $navigation-gap-arrow;
+
+        span {
+          &:first-child {
+            top: 3px;
+            left: 5px;
+            transform: translate(-50%, -50%) rotate(42deg);
+          }
+
+          &:last-child {
+            top: 8px;
+            left: 5px;
+            transform: translate(-50%, -50%) rotate(-42deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .button.nav {
+    .text {
+      display: none;
+    }
+    
+    .arrow {
+      &.prev,
+      &.next {
+        margin: 0;
+      }
+    }
+  }
+}

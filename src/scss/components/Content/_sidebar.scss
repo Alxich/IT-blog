@@ -1,0 +1,143 @@
+#sidebar {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  max-width: 320px;
+  margin-left: 40px;
+
+  & > div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .short-news {
+    align-items: flex-start;
+
+    & > .title {
+      @include mid-title(left);
+      margin-bottom: 30px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      border-bottom: 1px solid transparent;
+      width: 100%;
+      @include text-style(false);
+      transition: all $transition-normal;
+
+      &:not(:last-child) {
+        border-bottom-color: $border-news;
+        margin-bottom: 10px;
+      }
+
+      &:hover {
+        border-bottom-color: $purple-hover;
+      }
+
+      & > div {
+        margin-bottom: 10px;
+      }
+
+      .title {
+        color: $black;
+        cursor: pointer;
+        transition: all $transition-normal;
+
+        &:hover {
+          color: $purple;
+        }
+      }
+
+      .date {
+        color: $grey;
+      }
+    }
+  }
+
+  .form {
+    background-color: $white;
+    border-radius: 20px;
+    width: 100%;
+    padding: 40px 30px 50px 30px;
+    margin-top: 40px;
+
+    .title {
+      @include mid-title(left);
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  #sidebar {
+    max-width: 1040px;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 40px;
+
+    .short-news {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 570px) and (max-width: 1180px) {
+  #sidebar {
+    .short-news {
+      .container {
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: stretch;
+
+        .item {
+          border-color: transparent;
+          width: calc(33.33333% - 20px);
+
+          .date {
+            margin-top: auto;
+          }
+        }
+      }
+    }
+
+    .form {
+      form {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        max-width: 645px;
+
+        input {
+          margin: 0;
+          width: 100%;
+        }
+
+        button {
+          width: auto;
+          margin-left: 20px;
+          padding: 13px 60px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 570px) and (max-width: 700px) {
+  #sidebar {
+    .short-news {
+      .container {
+        .item {
+          border-color: transparent;
+          width: calc(33.33333% - 10px);
+        }
+      }
+    }
+  }
+}

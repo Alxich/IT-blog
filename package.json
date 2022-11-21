@@ -12,11 +12,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server-init": "json-server --watch server/db.json --port 3001",
+    "start-init": "react-scripts start",
+    "start": "concurrently --kill-others \"npm run server-init\" \"npm run start-init\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -34,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "classnames": "^2.3.2",
+    "concurrently": "^7.5.0",
+    "json-server": "^0.17.1",
+    "sass": "^1.56.1"
   }
 }

@@ -1,0 +1,16 @@
+#content-flow {
+  justify-content: flex-start;
+  max-width: 1040px;
+  margin: 0;
+
+  &.category {
+    padding-bottom: 80px;
+  }
+
+  &.search {
+    margin: 0 auto;
+    padding-bottom: 60px;
+  }
+
+  @import "./post";
+}

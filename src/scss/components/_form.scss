@@ -1,0 +1,63 @@
+form {
+  width: 100%;
+
+  &.search {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
+
+    input {
+      margin: 0;
+    }
+
+    button {
+      max-width: 196px;
+      margin-left: 20px;
+    }
+  }
+
+  input, textarea {
+    background-color: $input-bg;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    height: $input-height;
+    width: 100%;
+    text-align: left;
+    @include text-style($black);
+    padding: 13px 30px;
+    margin-bottom: 21px;
+    transition: all $transition-normal;
+
+    &:hover, &:target, &:active {
+       border: 1px solid $purple;
+    }
+
+    &::placeholder {
+      color: $grey;
+    }
+  }
+
+  textarea {
+    border: 1px solid transparent;
+    min-height: $area-height;
+    resize: vertical;
+
+    &:hover, &:target, &:active {
+      border: 1px solid $purple;
+   }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  form.search {
+    flex-direction: column;
+
+    button {
+      margin: 15px auto 0 auto;
+    }
+  }
+}
