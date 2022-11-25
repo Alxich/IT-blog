@@ -1,9 +1,30 @@
 #admin-content {
+    position: relative;
     width: 75%;
     padding: 40px 25px;
 
+    .open-bar {
+        position: absolute;
+        background-color: $purple;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 35px;
+        width: 35px;
+        top: 40px;
+        right: 15px;
+        padding: 10px;
+        cursor: pointer;
+
+        img {
+            object-fit: contain
+        }
+    }
+
     .main-title {
         @include main-title(left);
+        width: 90%;
         margin-bottom: 60px;
     }
 
@@ -11,6 +32,16 @@
         button {
             max-width: 220px;
             margin: 0 auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    #admin-content {
+        width: 100%;
+
+        .open-bar {
+            display: flex;
         }
     }
 }

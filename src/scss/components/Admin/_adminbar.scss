@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 60vh;
+  min-width: 350px;
   width: 25%;
   padding: 45px 0;
 
@@ -50,6 +51,44 @@
       &:last-child {
         border-bottom: 1px solid $purple;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #admin-bar {
+    min-width: 250px;
+
+    .admin-info {
+      .user-logo {
+        height: 160px;
+        width: 160px;
+
+        img {
+          height: 160px;
+          width: 160px;
+        }
+      }
+    }
+
+    .navigation {
+      li {
+        height: 55px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  #admin-bar {
+    position: absolute;
+    height: 100%;
+    left: -250px;
+    z-index: 1;
+    transition: all $transition-normal;
+
+    &.active {
+      left: 0;
     }
   }
 }
