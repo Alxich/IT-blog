@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import logo from "../images/logotype.svg";
 
@@ -11,7 +12,16 @@ function Footer({ navigationFooter }) {
         </div>
         <ul className="navigation container flex-row flex-space width-auto">
           {navigationFooter.map((item, i) => {
-            return <li key={`${item}__${i}`}>{item}</li>;
+            return (
+              <li key={`${item}__${i}`}>
+                <NavLink
+                  activeclassname="active"
+                  to={item.toLowerCase().replace(" ", "")}
+                >
+                  {item}
+                </NavLink>
+              </li>
+            );
           })}
         </ul>
         <div className="privacy">

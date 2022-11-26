@@ -2,11 +2,13 @@ import React from "react";
 
 import send from "../../images/icons/send-ico.svg";
 
-function AddPost() {
+function AddPost({ type }) {
+  const isNews = type === "news";
+
   return (
     <>
       <div className="title main-title">
-        <h1>Tell us a story</h1>
+        <h1>Tell us a {isNews ? "news" : "story"}</h1>
       </div>
       <form>
         <div className="item">

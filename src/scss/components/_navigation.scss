@@ -16,26 +16,29 @@
     transition: all $transition-normal;
     cursor: pointer;
 
-    &::after {
-      position: absolute;
-      content: "";
-      background-color: $purple;
-      display: block;
-      border-radius: 2px;
-      height: 2px;
-      width: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      margin: 0 auto;
-      transition: all $transition-normal;
-    }
-
-    &:hover {
-      color: $purple;
-
+    a {
       &::after {
-        width: 100%;
+        position: absolute;
+        content: "";
+        background-color: $purple;
+        display: block;
+        border-radius: 2px;
+        height: 2px;
+        width: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0 auto;
+        transition: all $transition-normal;
+      }
+
+      &:hover,
+      &.active {
+        color: $purple;
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }

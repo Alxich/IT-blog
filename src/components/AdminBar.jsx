@@ -1,18 +1,24 @@
 import classNames from "classnames";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import adminLogo from "../images/userlogo.png";
 
 function AdminBar({ openBar }) {
-  const navigation = ["Add new post", "All posts", "User settings", "Logout"];
+  const navigation = [
+    { name: "Add new post", link: "newpost" },
+    { name: "Add new news", link: "newnews" },
+    { name: "All posts", link: "posts" },
+    { name: "User settings", link: "settings" },
+  ];
 
   return (
     <div id="admin-bar" className={classNames({ active: openBar })}>
       <div className="admin-info">
-        <div className="user-logo">
+        <NavLink activeclassname="active" to="/admin" className="user-logo">
           <img src={adminLogo} alt="admin-logo" />
           <span className="case"></span>
-        </div>
+        </NavLink>
         <div className="title">
           <h3>
             Hello, <br /> Administrator
@@ -21,8 +27,15 @@ function AdminBar({ openBar }) {
       </div>
       <ul className="navigation container flex-column flex-space width-auto">
         {navigation.map((item, i) => {
-          return <li key={`${item}__${i}`}>{item}</li>;
+          return (
+            <li key={`${item.name}__${i}`}>
+              <NavLink activeclassname="active" to={item.link}>
+                {item.name}
+              </NavLink>
+            </li>
+          );
         })}
+        <li>Logout</li>
       </ul>
     </div>
   );

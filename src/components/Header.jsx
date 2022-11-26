@@ -1,5 +1,6 @@
-import classNames from "classnames";
 import React from "react";
+import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 
 import logo from "../images/logotype.svg";
 import phone from "../images/icons/phone.svg";
@@ -44,13 +45,26 @@ function Header({ menuOpen, setMenuOpen, navigationFooter, navigation }) {
       })}
     >
       <div className="container flex-row flex-space">
-        <div className="logo">
+        <NavLink activeclassname="active" to="/" className="logo">
           <img src={logo} alt="brand-logo" />
-        </div>
+        </NavLink>
         <div className="actions-nav container flex-row flex-space width-auto to-right">
           <ul className="navigation container flex-row flex-space width-auto">
             {navigation.map((item, i) => {
-              return <li key={`${item}__${i}`}>{item}</li>;
+              return (
+                <li key={`${item}__${i}`}>
+                  <NavLink
+                    activeclassname="active"
+                    to={
+                      item === "Home"
+                        ? "/"
+                        : item.toLowerCase().replace(" ", "")
+                    }
+                  >
+                    {item}
+                  </NavLink>
+                </li>
+              );
             })}
           </ul>
           <div className="button phone-btn">
@@ -59,10 +73,10 @@ function Header({ menuOpen, setMenuOpen, navigationFooter, navigation }) {
               +44 {"("}987{")"} 887-87
             </span>
           </div>
-          <div className="user-logo">
+          <NavLink activeclassname="active" to="/admin" className="user-logo">
             <img src={userLogo} alt="userIconLogo" />
             <span className="case"></span>
-          </div>
+          </NavLink>
           <div id="menu_button">
             <input
               type="checkbox"
@@ -78,7 +92,16 @@ function Header({ menuOpen, setMenuOpen, navigationFooter, navigation }) {
       <div className="container flex-center full-width mobile">
         <ul className="navigation container flex-center width-auto">
           {allNavigation.map((item, i) => {
-            return <li key={`${item}__${i}`}>{item}</li>;
+            return (
+              <li key={`${item}__${i}`}>
+                <NavLink
+                  activeclassname="active"
+                  to={item.toLowerCase().replace(" ", "")}
+                >
+                  {item}
+                </NavLink>
+              </li>
+            );
           })}
         </ul>
       </div>

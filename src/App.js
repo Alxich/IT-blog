@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 import { Footer, Header } from "./components";
 import UserInterface from "./interfaces/User";
@@ -6,7 +7,6 @@ import AdminInterface from "./interfaces/Admin";
 
 function App() {
   const [menuOpen, setMenuOpen] = React.useState();
-  const [isAdmin, setIsAdmin] = React.useState(false);
 
   const navigation = ["Home", "About us", "Contacts", "Search"];
   const navigationFooter = ["About us", "Gallery", "News", "Contacts"];
@@ -20,7 +20,10 @@ function App() {
         navigationFooter={navigationFooter}
       />
       <main className="wrapper">
-        {isAdmin ? <AdminInterface /> : <UserInterface />}
+        <Routes>
+          <Route exact path="/admin/*" element={<AdminInterface />}></Route>
+          <Route exact path="/*" element={<UserInterface />}></Route>
+        </Routes>
       </main>
       <Footer navigationFooter={navigationFooter} />
     </div>

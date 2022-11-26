@@ -1,0 +1,26 @@
+#login {
+  background-color: $white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 8px 40px rgba(8, 24, 111, 0.2);
+  border-radius: 20px;
+  max-height: 400px;
+  max-width: 560px;
+  width: calc(100% - 25px);
+  margin: auto;
+  padding: 60px 80px 60px 80px;
+
+  .title {
+    @include main-title(center);
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  #login {
+    max-width: 320px;
+    padding: 60px 25px 60px 25px;
+  }
+}

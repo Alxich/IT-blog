@@ -48,6 +48,14 @@
       width: 100%;
       padding: 15px;
 
+      a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
       &:last-child {
         border-bottom: 1px solid $purple;
       }
