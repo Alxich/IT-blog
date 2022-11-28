@@ -11,11 +11,12 @@ import {
 import { AdminBar } from "../components";
 import FailPage from "../Pages/FailPage";
 
-import openIcon from "../images/icons/open.svg";
-
-function AdminInterface() {
+function AdminInterface({ localStoreStage }) {
   const [openBar, setOpenBar] = React.useState(false);
-  const [isAdmin, setIsAdmin] = React.useState(false);
+  const [isAdmin, setIsAdmin] = React.useState(true);
+
+  const images = localStoreStage.images;
+  const openIcon = images.icons.open;
 
   const handleOpenBar = (openBar) => {
     openBar ? setOpenBar(false) : setOpenBar(true);
@@ -23,24 +24,47 @@ function AdminInterface() {
 
   return isAdmin === true ? (
     <div className="container page-height flex-row flex-stretch flex-space relative">
-      <AdminBar openBar={openBar} />
+      <AdminBar openBar={openBar} localStoreStage={localStoreStage} />
       <div id="admin-content">
         <div className="open-bar" onClick={() => handleOpenBar(openBar)}>
-          <img src={openIcon} alt="open-bar-icon" />
+          <img
+            src={openIcon}
+            alt="open-bar-icon"
+            referrerPolicy="no-referrer"
+          />
         </div>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/newpost" element={<AddPost />} />{" "}
-          <Route exact path="/newnews" element={<AddPost type="news" />} />
-          <Route exact path="/posts" element={<AllPosts />} />
-          <Route exact path="/settings" element={<AccountSettings />} />
-          <Route exact path="/*" element={<FailPage />} />
+          <Route exact path="/" element={<Home images={images} />} />
+          <Route
+            exact
+            path="/newpost"
+            element={<AddPost images={images} />}
+          />{" "}
+          <Route
+            exact
+            path="/newnews"
+            element={<AddPost type="news" images={images} />}
+          />
+          <Route exact path="/posts" element={<AllPosts images={images} />} />
+          <Route
+            exact
+            path="/settings"
+            element={<AccountSettings images={images} />}
+          />
+          <Route exact path="/*" element={<FailPage images={images} />} />
         </Routes>
       </div>
     </div>
   ) : (
     <div className="container page-height full-width flex-row flex-stretch flex-space relative animated">
-      <Login />
+      <div className="background">
+        <img
+          src={localStoreStage.images.animated}
+          alt="special-bg"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+      <Login images={images} />
     </div>
   );
 }

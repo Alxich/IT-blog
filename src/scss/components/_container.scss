@@ -8,9 +8,22 @@
   margin: 0 auto;
 
   &.animated {
-    background-image: url("../../images/login-bg.gif");
-    background-repeat: repeat;
-    background-size: 52px;
+    position: relative;
+
+    & > div {
+      z-index: 2;
+    }
+
+    .background {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+
+      img {
+        opacity: 0.35;
+      }
+    }
   }
 
   &.relative {

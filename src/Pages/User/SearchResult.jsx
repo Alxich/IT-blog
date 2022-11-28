@@ -2,10 +2,10 @@ import React from "react";
 
 import { Navigation, Post } from "../../components";
 
-import postExOne from "../../images/blog-image-1.png";
-import postExTwo from "../../images/blog-image-2.png";
+function SearchResult({ images }) {
+  const postExOne = images.blogExample.miniature[0];
+  const postExTwo = images.blogExample.miniature[1];
 
-function SearchResult() {
   return (
     <div
       id="search"

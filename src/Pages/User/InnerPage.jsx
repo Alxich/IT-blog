@@ -3,11 +3,11 @@ import classnames from "classnames";
 
 import { Sidebar } from "../../components";
 
-import banner from "../../images/blog-inner-image.png";
-import bannerEnd from "../../images/blog-inner-image-footer.png";
-import addInfo from "../../images/blog-inner-image-add.png";
+function InnerPage({ images }) {
+  const banner = images.blogExample.innerPage.inner[0];
+  const bannerEnd = images.blogExample.innerPage.inner[1];
+  const addInfo = images.blogExample.innerPage.inner[2];
 
-function InnerPage() {
   const text = [
     'As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: "I want to calculate that I am ready, not particularly in demand, but what do you really need?" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.',
     'IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly "alive"?',
@@ -18,7 +18,7 @@ function InnerPage() {
   return (
     <>
       <div id="banner" className="inner">
-        <img src={banner} alt="page-banner" />
+        <img src={banner} alt="page-banner" referrerPolicy="no-referrer" />
       </div>
       <div className="container page-height flex-row flex-stretch flex-space content-use">
         <div id="content">
@@ -48,7 +48,11 @@ function InnerPage() {
                     {i % 2 !== 0 && (
                       <div className="related">
                         <div className="thumbnail">
-                          <img src={addInfo} alt="related-bonus-info" />
+                          <img
+                            src={addInfo}
+                            alt="related-bonus-info"
+                            referrerPolicy="no-referrer"
+                          />
                         </div>
                         <div className="title">
                           <p>
@@ -66,7 +70,11 @@ function InnerPage() {
               })}
           </div>
           <div className="banner-content">
-            <img src={bannerEnd} alt="content-banner" />
+            <img
+              src={bannerEnd}
+              alt="content-banner"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div className="navigation buttons">
             <div className="button nav nav-prev">

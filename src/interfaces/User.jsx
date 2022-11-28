@@ -11,16 +11,25 @@ import {
 } from "../Pages/User";
 import FailPage from "../Pages/FailPage";
 
-function UserInterface() {
+function UserInterface({ localStoreStage }) {
+  const images = localStoreStage.images;
   return (
     <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route exact path="/post" element={<InnerPage />} />
-      <Route exact path="/category" element={<Category />} />
-      <Route exact path="/contacts" element={<Contacts />} />
-      <Route exact path="/searchresult" element={<SearchResult />} />
-      <Route exact path="/search" element={<SearchInput />} />
-      <Route exact path="/*" element={<FailPage />} />
+      <Route
+        exact
+        path="/"
+        element={<Home localStoreStage={localStoreStage} images={images} />}
+      />
+      <Route exact path="/post" element={<InnerPage images={images} />} />
+      <Route exact path="/category" element={<Category images={images} />} />
+      <Route exact path="/contacts" element={<Contacts images={images} />} />
+      <Route
+        exact
+        path="/searchresult"
+        element={<SearchResult images={images} />}
+      />
+      <Route exact path="/search" element={<SearchInput images={images} />} />
+      <Route exact path="/*" element={<FailPage images={images} />} />
     </Routes>
   );
 }

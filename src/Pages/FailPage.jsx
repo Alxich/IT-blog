@@ -1,12 +1,16 @@
 import React from "react";
 
-import ksenchik from "../images/ksenchik.png";
+function FailPage({ images }) {
+  const ksenchik = images.failPage;
 
-function FailPage() {
   return (
     <div id="failpage" className="container flex-center full-width">
       <div className="thumbnail">
-        <img src={ksenchik} alt="ksenchik-face-fail" />
+        <img
+          src={ksenchik}
+          alt="ksenchik-face-fail"
+          referrerPolicy="no-referrer"
+        />
       </div>
       <div className="title">
         <h1>Something went wrong...</h1>

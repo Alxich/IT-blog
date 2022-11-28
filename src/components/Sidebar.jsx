@@ -1,8 +1,8 @@
 import React from "react";
 
-import send from "../images/icons/send-ico.svg";
+function Sidebar({ images }) {
+  const send = images.icons.send;
 
-function Sidebar() {
   return (
     <div id="sidebar">
       <div className="short-news">
@@ -50,7 +50,7 @@ function Sidebar() {
           <input placeholder="Email@gmail.com" />
           <button className="button subscribe">
             <span>Subscribe</span>
-            <img src={send} alt="arrow-send" />
+            <img src={send} alt="arrow-send" referrerPolicy="no-referrer"/>
           </button>
         </form>
       </div>

@@ -2,11 +2,12 @@ import React from "react";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 
-import logo from "../images/logotype.svg";
-import phone from "../images/icons/phone.svg";
-import userLogo from "../images/userlogo.png";
+function Header({ menuOpen, setMenuOpen, localStoreStage }) {
+  const images = localStoreStage.images;
+  const { logo, userLogo, icons } = images;
+  const navigation = localStoreStage.navigation.header;
+  const navigationFooter = localStoreStage.navigation.footer;
 
-function Header({ menuOpen, setMenuOpen, navigationFooter, navigation }) {
   const handleChangeMenuStatus = (menuOpen) => {
     menuOpen ? setMenuOpen(false) : setMenuOpen(true);
   };
@@ -46,7 +47,7 @@ function Header({ menuOpen, setMenuOpen, navigationFooter, navigation }) {
     >
       <div className="container flex-row flex-space">
         <NavLink activeclassname="active" to="/" className="logo">
-          <img src={logo} alt="brand-logo" />
+          <img src={logo} alt="brand-logo" referrerPolicy="no-referrer" />
         </NavLink>
         <div className="actions-nav container flex-row flex-space width-auto to-right">
           <ul className="navigation container flex-row flex-space width-auto">
@@ -68,13 +69,23 @@ function Header({ menuOpen, setMenuOpen, navigationFooter, navigation }) {
             })}
           </ul>
           <div className="button phone-btn">
-            <img src={phone} alt="phone-btn-ico" />
+            <span className="icon">
+              <img
+                src={icons.phone}
+                alt="phone-btn-ico"
+                referrerPolicy="no-referrer"
+              />
+            </span>
             <span>
               +44 {"("}987{")"} 887-87
             </span>
           </div>
           <NavLink activeclassname="active" to="/admin" className="user-logo">
-            <img src={userLogo} alt="userIconLogo" />
+            <img
+              src={userLogo}
+              alt="userIconLogo"
+              referrerPolicy="no-referrer"
+            />
             <span className="case"></span>
           </NavLink>
           <div id="menu_button">

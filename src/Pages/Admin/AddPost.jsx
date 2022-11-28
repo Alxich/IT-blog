@@ -1,9 +1,8 @@
 import React from "react";
 
-import send from "../../images/icons/send-ico.svg";
-
-function AddPost({ type }) {
+function AddPost({ type, images }) {
   const isNews = type === "news";
+  const send = images.icons.send;
 
   return (
     <>
@@ -68,7 +67,7 @@ function AddPost({ type }) {
         </div>
         <button className="button send">
           <span>Send the story</span>
-          <img src={send} alt="arrow-send" />
+          <img src={send} alt="arrow-send" referrerPolicy="no-referrer"/>
         </button>
       </form>
     </>

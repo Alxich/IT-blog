@@ -5,3 +5,4 @@ export { default as Post } from "./Post";
 export { default as Sidebar } from "./Sidebar";
 export { default as Navigation } from "./Navigation";
 export { default as AdminBar } from "./AdminBar";
+export { default as LoadingPage } from "./LoadingPage";

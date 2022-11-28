@@ -1,8 +1,7 @@
 import React from "react";
 
-import loginIcon from "../../images/icons/open.svg";
-
-function Login() {
+function Login({ images }) {
+  const loginIcon = images.icon.open;
   return (
     <div id="login">
       <div className="title">
@@ -13,7 +12,7 @@ function Login() {
         <input type="Password" name="name" placeholder="Password" />
         <button className="button send">
           <span>Login</span>
-          <img src={loginIcon} alt="arrow-send" />
+          <img src={loginIcon} alt="arrow-send" referrerPolicy="no-referrer"/>
         </button>
       </form>
     </div>

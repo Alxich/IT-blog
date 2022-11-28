@@ -5,10 +5,17 @@
   cursor: pointer;
 
   &.phone-btn {
-    img {
-      display: block;
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 14px;
       width: 14px;
+      overflow: hidden;
+
+      img {
+        transform: scale(3.5);
+      }
     }
 
     span {

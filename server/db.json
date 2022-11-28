@@ -1,42 +1,47 @@
 {
   "webStoreData": {
     "images": {
-      "logo": "/server/images/logo",
-      "banner": "/server/images/banner-image.png",
-      "blogExample": [
-        {
-          "miniature": [
-            "/server/images/blog-image-1.png",
-            "/server/images/blog-image-2.png"
-          ],
-          "inner": [
-            "/server/images/blog-inner-image.png",
-            "/server/images/blog-inner-image-add.png",
-            "/server/images/blog-inner-image-footer.png"
-          ]
-        }
-      ],
-      "socials": [
-        {
-          "facebook": "/server/images/socials/facebook.svg",
-          "instagram": "/server/images/socials/instagram.svg",
-          "twitter": "/server/images/socials/twitter.svg"
-        }
-      ],
-      "icons": [
-        {
-          "send": "/server/images/icons/send-ico.svg",
-          "load": "/server/images/icons/load-more.svg",
-          "map": "/server/images/icons/map.svg",
-          "phone": "/server/images/icons/phone.svg",
-          "search": "/server/images/icons/search-ico.svg"
-        }
-      ],
-      "failPage": "/server/images/ksenchik.png"
+      "logo": "https://lh4.googleusercontent.com/msD-t45IpXu_wf37iSe5uoDKzrVEUjG6D5TEEkIkBXAiMZ6JXr3ADxn_wsLI6WYrpFY=w2400",
+      "banner": "https://lh3.googleusercontent.com/tyFF_27TvGQoE1rrDhldN5gCtk_l1PQPdxvfQQXN97Q5awEQ8eZY8GRzaIN_BoYTS-8=w2400",
+      "blogExample": {
+        "miniature": [
+          "https://lh3.googleusercontent.com/yABvN8rI4kricKpgDVAzfrhr3uIVtGchfH52GTIdOX67hNwIjxmwuOyEPpbbZpWOUow=w2400",
+          "https://lh4.googleusercontent.com/sJB3523DvuzDC-srROG8cd9QTv8U1ebzSJt3fPSl2nu15wn7bP0SVSx8clCyTObdUr8=w2400"
+        ],
+        "inner": [
+          "https://lh4.googleusercontent.com/cVOcMvrON6eLruhyuIRHkh8oxcXYQjOOEKKt7ExogtgF1gEhGayu845ZntBEGPXQBN8=w2400",
+          "https://lh6.googleusercontent.com/WGbQuRg-n68MWisGOENtPvavt-ZND2XOPaZoS3npRZytqRWhXv3RPU7YaehiIHz043Q=w2400",
+          "https://lh5.googleusercontent.com/OojtnKOU0ViBOWuXkUUtcjBizeYNWTAGagKv-jdyn95LgPIMOrvkeVr4DLj1nqM18zM=w2400"
+        ]
+      },
+      "socials": {
+        "facebook": "https://lh4.googleusercontent.com/YkPo9RDIf2F25NBm0wAhlnPGwGGOm0ltQFnRqAIcpt_uGQGiulSGpsBQWLYH0n4n1vA=w2400",
+        "instagram": "https://lh5.googleusercontent.com/1WaIxglo1YZ86rYaokdemtGBI3Hg5ApSt-apUNgV8PSM3FGBgoaFpgG0tfjnrrycrnc=w2400",
+        "twitter": "https://lh6.googleusercontent.com/WHPg3NZuGiV6jb3qtoEz0v1N06glCznHW77xpOqT8ZGhWf-nvIzp0Z9LPcfLsJ4YDI0=w2400"
+      },
+      "icons": {
+        "send": "https://lh5.googleusercontent.com/8sKQJsAppbW63SEg0EMzzwfJ6yRgPnI5zTKekNvk9UjYKNhvWlGaljI-xMBuqXzImwQ=w2400",
+        "load": "https://lh6.googleusercontent.com/ULecIPM9MfjhKXWQe889o50ZPeohfPTBZu_zTd3e6p0dHrjGc89gBH0m6winvJFRgvI=w2400",
+        "map": "https://lh5.googleusercontent.com/l40PzFxGMgNWLLUw8pEbPOA8Kf9fRSdqPcPELHpWZI4uy5mnVWt9YZCGV8PAlXfr_TI=w2400",
+        "phone": "https://lh6.googleusercontent.com/L7GYQsqmcvyI9BRmdA1lvNteMi6MDQ161kW_I8_tiq7zYxtLGlvToAeeLCtmx-x-UlU=w2400",
+        "search": "https://lh4.googleusercontent.com/w4B5eb8pTEjCdFAUEZyH77W1azkJZaAwQMB9gsoSE51k5HavbrigHW1_WCB_ei-1W34=w2400",
+        "gear": "https://lh5.googleusercontent.com/ELhaxZnHdUe_D68sRpfxjNkoIelZFken7Ca_cE0yd1lRX-USjyt07l3YsjHp63YxngA=w2400",
+        "open": "https://lh4.googleusercontent.com/_v9OTSFoWTdk152JQaIf37f5zAVJw6_w95cREsxhjtVAnefD-CfpE_NP5W2cme8Urho=w2400",
+        "bin": "https://lh4.googleusercontent.com/PE83aCPnf6ewCtWYgWyMcAKFWFk0ku5xZ7yDiRngxUmy_5t2ueEYeJ-T_6VGePF-_ks=w2400"
+      },
+      "failPage": "https://lh4.googleusercontent.com/4eldi4OjcynJr9R0KxAJDtpWOzRCHD8FtToVh6_GPvU0A5-NkO-uUj5jacE-EKWH9ZA=w2400",
+      "animated": "https://lh4.googleusercontent.com/-6_8J20Nck4hIkM68g-7AQbqb3-vfIWUMZdN5xJljNgzpmiFXx9uItrHBYGvB233u18=w2400",
+      "userLogo": "https://lh3.googleusercontent.com/WxEmifXUoV1c-YFQGdNKrZTSUyfYFEsCF2mLmzxhRz6KNLgR-UNj19QblMO0qhVzeug=w2400"
     },
     "navigation": {
       "header": ["Home", "About us", "Contacts", "Search"],
-      "footer": ["About us", "Gallery", "News", "Contacts"]
+      "footer": ["About us", "Gallery", "News", "Contacts"],
+      "admin": [
+        { "name": "Add new post", "link": "newpost" },
+        { "name": "Add new news", "link": "newnews" },
+        { "name": "All posts", "link": "posts" },
+        { "name": "User settings", "link": "settings" }
+      ]
     },
     "texts": {
       "corporationRights": "LLC \"Organization\" 2022. All rights reserved.",
@@ -90,6 +95,73 @@
     {
       "id": 0,
       "title": "Is IT asset management a boring routine or a creative task?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "ITAM&SAMDay is a real success!",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Management of the XXI century. Do we need to prepare for changes, or should we have changed a long time ago?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    }
+  ],
+  "news": [
+    {
+      "id": 0,
+      "title": "Is IT asset management a boring routine or a creative task?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "ITAM&SAMDay is a real success!",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Management of the XXI century. Do we need to prepare for changes, or should we have changed a long time ago?",
       "category": "IT-investigation",
       "data": "13 jan 2020",
       "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",

@@ -1,7 +1,7 @@
 import React from "react";
 import { Post } from "../../components";
 
-function Home() {
+function Home({ images }) {
   return (
     <>
       <div className="title main-title">
@@ -11,17 +11,17 @@ function Home() {
         <h1>Recent post</h1>
       </div>
       <div id="content-flow" className="container">
-        <Post fullWidth edit />
-        <Post fullWidth edit />
-        <Post fullWidth edit />
+        <Post fullWidth edit images={images} />
+        <Post fullWidth edit images={images} />
+        <Post fullWidth edit images={images} />
       </div>
       <div className="title main-title">
         <h1>Recent News</h1>
       </div>
       <div id="content-flow" className="container">
-        <Post fullWidth title="News1" edit />
-        <Post fullWidth title="News2" edit />
-        <Post fullWidth title="News3" edit />
+        <Post fullWidth title="News1" edit images={images} />
+        <Post fullWidth title="News2" edit images={images} />
+        <Post fullWidth title="News3" edit images={images} />
       </div>
     </>
   );

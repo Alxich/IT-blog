@@ -1,13 +1,13 @@
 import React from "react";
 
-import iconPhone from "../../images/icons/phone.svg";
-import send from "../../images/icons/send-ico.svg";
-import iconMap from "../../images/icons/map.svg";
-import facebook from "../../images/socials/facebook.svg";
-import instagram from "../../images/socials/instagram.svg";
-import twitter from "../../images/socials/twitter.svg";
+function Contacts({ images }) {
+  const iconPhone = images.icons.phone;
+  const send = images.icons.send;
+  const iconMap = images.icons.map;
+  const facebook = images.socials.facebook;
+  const instagram = images.socials.instagram;
+  const twitter = images.socials.twitter;
 
-function Contacts() {
   return (
     <div id="contacts">
       <div className="container flex-row flex-space">
@@ -18,22 +18,38 @@ function Contacts() {
           <ul className="info">
             <li>
               <span>+44 (797) 5777666</span>
-              <img src={iconPhone} alt="phone-icon" />
+              <img
+                src={iconPhone}
+                alt="phone-icon"
+                referrerPolicy="no-referrer"
+              />
             </li>
             <li>
               <span>Mrs Smith 71 Cherry Court SOUTHAMPTON</span>
-              <img src={iconMap} alt="map-icon" />
+              <img src={iconMap} alt="map-icon" referrerPolicy="no-referrer" />
             </li>
           </ul>
           <ul className="socials">
             <li>
-              <img src={facebook} alt="facebook-social" />
+              <img
+                src={facebook}
+                alt="facebook-social"
+                referrerPolicy="no-referrer"
+              />
             </li>
             <li>
-              <img src={instagram} alt="instagram-social" />
+              <img
+                src={instagram}
+                alt="instagram-social"
+                referrerPolicy="no-referrer"
+              />
             </li>
             <li>
-              <img src={twitter} alt="twitter-social" />
+              <img
+                src={twitter}
+                alt="twitter-social"
+                referrerPolicy="no-referrer"
+              />
             </li>
           </ul>
         </div>
@@ -47,7 +63,7 @@ function Contacts() {
             <textarea placeholder="Message..." />
             <button className="button send">
               <span>Subscribe</span>
-              <img src={send} alt="arrow-send" />
+              <img src={send} alt="arrow-send" referrerPolicy="no-referrer" />
             </button>
           </form>
         </div>

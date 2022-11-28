@@ -1,8 +1,8 @@
 import React from "react";
 
-import binIcon from "../../images/icons/bin.svg";
-
-function AccountSettings() {
+function AccountSettings({ images }) {
+  const binIcon = images.icons.bin;
+  
   return (
     <>
       <div className="title main-title">
@@ -34,7 +34,7 @@ function AccountSettings() {
           </div>
           <button className="button delete">
             <span className="text">Delete my account</span>
-            <img src={binIcon} alt="Oh no you will delete this acc" />
+            <img src={binIcon} alt="Oh no you will delete this acc" referrerPolicy="no-referrer"/>
           </button>
         </div>
       </form>

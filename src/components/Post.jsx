@@ -1,14 +1,13 @@
 import classNames from "classnames";
 import React from "react";
 
-import gearIcon from "../images/icons/gear.svg";
-
 function Post({
   className,
   fullWidth,
   edit,
   twoItems,
   threeItems,
+  images,
   imageSrc,
   category,
   categorySecond,
@@ -21,6 +20,8 @@ function Post({
   titleThird,
   children,
 }) {
+  const gearIcon = images.icons.gear;
+
   return (
     <div
       className={classNames("post", className, {
@@ -62,7 +63,11 @@ function Post({
           {edit && (
             <div className="button edit">
               <span className="text">Edit this post</span>
-              <img src={gearIcon} alt="edit-image-icon" />
+              <img
+                src={gearIcon}
+                alt="edit-image-icon"
+                referrerPolicy="no-referrer"
+              />
             </div>
           )}
         </>
@@ -156,7 +161,15 @@ function Post({
             </div>
             <div className="item small">
               <div className="background">
-                {imageSrc ? <img src={imageSrc} alt="post-small" /> : ""}
+                {imageSrc ? (
+                  <img
+                    src={imageSrc}
+                    alt="post-small"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  ""
+                )}
               </div>
               <div className="content">
                 <div className="category">

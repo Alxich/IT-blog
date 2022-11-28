@@ -2,21 +2,15 @@ import classNames from "classnames";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import adminLogo from "../images/userlogo.png";
-
-function AdminBar({ openBar }) {
-  const navigation = [
-    { name: "Add new post", link: "newpost" },
-    { name: "Add new news", link: "newnews" },
-    { name: "All posts", link: "posts" },
-    { name: "User settings", link: "settings" },
-  ];
+function AdminBar({ openBar, localStoreStage }) {
+  const navigation = localStoreStage.navigation.admin;
+  const adminLogo = localStoreStage.images.userLogo;
 
   return (
     <div id="admin-bar" className={classNames({ active: openBar })}>
       <div className="admin-info">
         <NavLink activeclassname="active" to="/admin" className="user-logo">
-          <img src={adminLogo} alt="admin-logo" />
+          <img src={adminLogo} alt="admin-logo" referrerPolicy="no-referrer" />
           <span className="case"></span>
         </NavLink>
         <div className="title">
