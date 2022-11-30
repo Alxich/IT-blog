@@ -107,7 +107,17 @@ function Post({
             </div>
           </div>
           <div className="item small">
-            <div className="background"></div>
+            <div className="background">
+              {imageSrc ? (
+                <img
+                  src={imageSrc}
+                  alt="post-small"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                ""
+              )}
+            </div>
             <div className="content">
               <div className="category">
                 <p>{categorySecond ? categorySecond : "Sandbox"}</p>

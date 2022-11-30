@@ -97,12 +97,28 @@
       }
     }
   },
+  "postsIds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   "posts": [
     {
       "id": 0,
       "title": "Is IT asset management a boring routine or a creative task?",
       "category": "IT-investigation",
       "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "ITAM&SAMDay is a real success!",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
       "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
       "text": [
         "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
@@ -116,6 +132,7 @@
       "title": "ITAM&SAMDay is a real success!",
       "category": "IT-investigation",
       "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
       "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
       "text": [
         "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
@@ -129,6 +146,105 @@
       "title": "Management of the XXI century. Do we need to prepare for changes, or should we have changed a long time ago?",
       "category": "IT-investigation",
       "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+      "shortDesc": "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Is IT asset management a boring routine or a creative task?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "ITAM&SAMDay is a real success!",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Management of the XXI century. Do we need to prepare for changes, or should we have changed a long time ago?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Is IT asset management a boring routine or a creative task?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 8,
+      "title": "ITAM&SAMDay is a real success!",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Management of the XXI century. Do we need to prepare for changes, or should we have changed a long time ago?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
+      "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
+      "text": [
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Is IT asset management a boring routine or a creative task?",
+      "category": "IT-investigation",
+      "data": "13 jan 2020",
+      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png",
       "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all.",
       "text": [
         "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
@@ -138,6 +254,7 @@
       ]
     }
   ],
+  "newsIds": [0, 1, 2],
   "news": [
     {
       "id": 0,
@@ -153,7 +270,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 1,
       "title": "ITAM&SAMDay is a real success!",
       "category": "IT-investigation",
       "data": "13 jan 2020",
@@ -166,7 +283,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "Management of the XXI century. Do we need to prepare for changes, or should we have changed a long time ago?",
       "category": "IT-investigation",
       "data": "13 jan 2020",

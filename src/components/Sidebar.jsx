@@ -1,6 +1,27 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNews } from "../redux/actions/news";
+import NewsLoading from "./NewsLoading";
 
 function Sidebar({ images, localStoreStage }) {
+  const dispatch = useDispatch();
+  const localNews = useSelector(({ newsData }) => newsData.news);
+
+  React.useEffect(() => {
+    dispatch(fetchNews(3));
+  }, [dispatch]);
+
+  const [isLoaded, setIsLoaded] = React.useState(false);
+  const loadedTarget = useSelector(({ newsData }) => newsData.isLoaded);
+
+  React.useEffect(() => {
+    if (isLoaded !== true) {
+      setTimeout(() => {
+        setIsLoaded(loadedTarget);
+      }, 1500);
+    }
+  }, [isLoaded, loadedTarget]);
+
   const send = images.icons.send;
 
   const { news, subscription } = localStoreStage.texts;
@@ -13,36 +34,20 @@ function Sidebar({ images, localStoreStage }) {
           <h4>{news}</h4>
         </div>
         <div className="container">
-          <div className="item">
-            <div className="title">
-              <h5>ITAM&SAMDay is a real success!</h5>
-            </div>
-            <div className="date">
-              <p>13 Jan 2020</p>
-            </div>
-          </div>
-          <div className="item">
-            <div className="title">
-              <h5>
-                Licensing Secrets. Everything you wanted to know about
-                Microsoft, SAP and Oracle, but didn't know who to ask...
-              </h5>
-            </div>
-            <div className="date">
-              <p>10 Jan 2020</p>
-            </div>
-          </div>
-          <div className="item">
-            <div className="title">
-              <h5>
-                Management of the XXI century. Do we need to prepare for
-                changes, or should we have changed a long time ago?
-              </h5>
-            </div>
-            <div className="date">
-              <p>5 Jan 2020</p>
-            </div>
-          </div>
+          {isLoaded
+            ? localNews.map((item, i) => (
+                <div className="item" key={`${item}__${i}`}>
+                  <div className="title">
+                    <h5>{item.title}</h5>
+                  </div>
+                  <div className="date">
+                    <p>{item.data}</p>
+                  </div>
+                </div>
+              ))
+            : Array(3)
+                .fill(0)
+                .map((_, index) => <NewsLoading key={index} />)}
         </div>
       </div>
       <div className="form subscribe">
