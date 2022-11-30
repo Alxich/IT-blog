@@ -19,7 +19,7 @@ function Home({ localStoreStage, images }) {
           <Post twoItems images={images} />
           <Post threeItems images={images} />
         </div>
-        <Sidebar images={images} />
+        <Sidebar images={images} localStoreStage={localStoreStage} />
       </div>
     </>
   );

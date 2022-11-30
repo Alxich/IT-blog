@@ -63,11 +63,14 @@ function Post({
           {edit && (
             <div className="button edit">
               <span className="text">Edit this post</span>
-              <img
-                src={gearIcon}
-                alt="edit-image-icon"
-                referrerPolicy="no-referrer"
-              />
+              {
+                // eslint-disable-next-line jsx-a11y/img-redundant-alt
+                <img
+                  src={gearIcon}
+                  alt="edit-image-icon"
+                  referrerPolicy="no-referrer"
+                />
+              }
             </div>
           )}
         </>

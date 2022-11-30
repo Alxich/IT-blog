@@ -1,37 +1,43 @@
 {
+  "user": {
+    "admin": {
+      "login": "administator",
+      "password": "adminlovecats"
+    }
+  },
   "webStoreData": {
     "images": {
-      "logo": "https://lh4.googleusercontent.com/msD-t45IpXu_wf37iSe5uoDKzrVEUjG6D5TEEkIkBXAiMZ6JXr3ADxn_wsLI6WYrpFY=w2400",
-      "banner": "https://lh3.googleusercontent.com/tyFF_27TvGQoE1rrDhldN5gCtk_l1PQPdxvfQQXN97Q5awEQ8eZY8GRzaIN_BoYTS-8=w2400",
+      "logo": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803552/IT-blog/logotype_wly8go.svg",
+      "banner": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803554/IT-blog/banner-image_frlqwm.png",
       "blogExample": {
         "miniature": [
-          "https://lh3.googleusercontent.com/yABvN8rI4kricKpgDVAzfrhr3uIVtGchfH52GTIdOX67hNwIjxmwuOyEPpbbZpWOUow=w2400",
-          "https://lh4.googleusercontent.com/sJB3523DvuzDC-srROG8cd9QTv8U1ebzSJt3fPSl2nu15wn7bP0SVSx8clCyTObdUr8=w2400"
+          "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+          "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-2_im3grq.png"
         ],
         "inner": [
-          "https://lh4.googleusercontent.com/cVOcMvrON6eLruhyuIRHkh8oxcXYQjOOEKKt7ExogtgF1gEhGayu845ZntBEGPXQBN8=w2400",
-          "https://lh6.googleusercontent.com/WGbQuRg-n68MWisGOENtPvavt-ZND2XOPaZoS3npRZytqRWhXv3RPU7YaehiIHz043Q=w2400",
-          "https://lh5.googleusercontent.com/OojtnKOU0ViBOWuXkUUtcjBizeYNWTAGagKv-jdyn95LgPIMOrvkeVr4DLj1nqM18zM=w2400"
+          "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-inner-image_vxn9bk.png",
+          "https://res.cloudinary.com/dieaiknad/image/upload/v1669803553/IT-blog/blog-inner-image-footer_qtitx3.png",
+          "https://res.cloudinary.com/dieaiknad/image/upload/v1669803552/IT-blog/blog-inner-image-add_cgkwwe.png"
         ]
       },
       "socials": {
-        "facebook": "https://lh4.googleusercontent.com/YkPo9RDIf2F25NBm0wAhlnPGwGGOm0ltQFnRqAIcpt_uGQGiulSGpsBQWLYH0n4n1vA=w2400",
-        "instagram": "https://lh5.googleusercontent.com/1WaIxglo1YZ86rYaokdemtGBI3Hg5ApSt-apUNgV8PSM3FGBgoaFpgG0tfjnrrycrnc=w2400",
-        "twitter": "https://lh6.googleusercontent.com/WHPg3NZuGiV6jb3qtoEz0v1N06glCznHW77xpOqT8ZGhWf-nvIzp0Z9LPcfLsJ4YDI0=w2400"
+        "facebook": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803550/IT-blog/socials/facebook_ub1n6m.svg",
+        "instagram": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/socials/instagram_ou0ihc.svg",
+        "twitter": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/socials/twitter_noedtl.svg"
       },
       "icons": {
-        "send": "https://lh5.googleusercontent.com/8sKQJsAppbW63SEg0EMzzwfJ6yRgPnI5zTKekNvk9UjYKNhvWlGaljI-xMBuqXzImwQ=w2400",
-        "load": "https://lh6.googleusercontent.com/ULecIPM9MfjhKXWQe889o50ZPeohfPTBZu_zTd3e6p0dHrjGc89gBH0m6winvJFRgvI=w2400",
-        "map": "https://lh5.googleusercontent.com/l40PzFxGMgNWLLUw8pEbPOA8Kf9fRSdqPcPELHpWZI4uy5mnVWt9YZCGV8PAlXfr_TI=w2400",
-        "phone": "https://lh6.googleusercontent.com/L7GYQsqmcvyI9BRmdA1lvNteMi6MDQ161kW_I8_tiq7zYxtLGlvToAeeLCtmx-x-UlU=w2400",
-        "search": "https://lh4.googleusercontent.com/w4B5eb8pTEjCdFAUEZyH77W1azkJZaAwQMB9gsoSE51k5HavbrigHW1_WCB_ei-1W34=w2400",
-        "gear": "https://lh5.googleusercontent.com/ELhaxZnHdUe_D68sRpfxjNkoIelZFken7Ca_cE0yd1lRX-USjyt07l3YsjHp63YxngA=w2400",
-        "open": "https://lh4.googleusercontent.com/_v9OTSFoWTdk152JQaIf37f5zAVJw6_w95cREsxhjtVAnefD-CfpE_NP5W2cme8Urho=w2400",
-        "bin": "https://lh4.googleusercontent.com/PE83aCPnf6ewCtWYgWyMcAKFWFk0ku5xZ7yDiRngxUmy_5t2ueEYeJ-T_6VGePF-_ks=w2400"
+        "send": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803554/IT-blog/icons/send-ico_vqmm5x.svg",
+        "load": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803553/IT-blog/icons/load-more_tzc2mm.svg",
+        "map": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803553/IT-blog/icons/map_akjd30.svg",
+        "phone": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803554/IT-blog/icons/phone_jiakok.svg",
+        "search": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803554/IT-blog/icons/search-ico_mfk79a.svg",
+        "gear": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803552/IT-blog/icons/gear_p8w3lr.svg",
+        "open": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803554/IT-blog/icons/open_lk0uld.svg",
+        "bin": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803552/IT-blog/icons/bin_zjd5u3.svg"
       },
-      "failPage": "https://lh4.googleusercontent.com/4eldi4OjcynJr9R0KxAJDtpWOzRCHD8FtToVh6_GPvU0A5-NkO-uUj5jacE-EKWH9ZA=w2400",
-      "animated": "https://lh4.googleusercontent.com/-6_8J20Nck4hIkM68g-7AQbqb3-vfIWUMZdN5xJljNgzpmiFXx9uItrHBYGvB233u18=w2400",
-      "userLogo": "https://lh3.googleusercontent.com/WxEmifXUoV1c-YFQGdNKrZTSUyfYFEsCF2mLmzxhRz6KNLgR-UNj19QblMO0qhVzeug=w2400"
+      "failPage": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803552/IT-blog/ksenchik_tpbtsm.png",
+      "animated": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803557/IT-blog/login-bg_fnafr2.gif",
+      "userLogo": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803553/IT-blog/userlogo_mkroey.png"
     },
     "navigation": {
       "header": ["Home", "About us", "Contacts", "Search"],
@@ -45,8 +51,8 @@
     },
     "texts": {
       "corporationRights": "LLC \"Organization\" 2022. All rights reserved.",
-      "News": "Popular News",
-      "Subscription": {
+      "news": "Featured News",
+      "subscription": {
         "title": "Newsletter subscription",
         "input": "Email@gmail.com",
         "button": "Subscribe"

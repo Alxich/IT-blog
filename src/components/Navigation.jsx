@@ -1,10 +1,12 @@
 import React from "react";
 
-function Navigation() {
+function Navigation({ localStoreStage }) {
+  const { nextNews, previosNews } = localStoreStage.texts.navigation;
+
   return (
     <div className="navigation buttons nav-items">
       <div className="button nav nav-prev">
-        <span className="text">Previous news</span>
+        <span className="text">{previosNews}</span>
         <span className="arrow prev">
           <span></span>
           <span></span>
@@ -31,7 +33,7 @@ function Navigation() {
         </div>
       </div>
       <div className="button nav nav-next">
-        <span className="text">Next news</span>
+        <span className="text">{nextNews}</span>
         <span className="arrow next">
           <span></span>
           <span></span>

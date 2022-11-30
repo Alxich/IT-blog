@@ -18,14 +18,14 @@ function App() {
         setIsLoaded(loadedTarget);
       }, 1500);
     }
-  }, [loadedTarget]);
+  }, [isLoaded, loadedTarget]);
 
   const localStoreStage = useSelector(({ appData }) => appData.defaultData);
   const [menuOpen, setMenuOpen] = React.useState();
 
   React.useEffect(() => {
     dispatch(fetchData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">

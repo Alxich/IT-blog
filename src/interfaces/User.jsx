@@ -20,16 +20,38 @@ function UserInterface({ localStoreStage }) {
         path="/"
         element={<Home localStoreStage={localStoreStage} images={images} />}
       />
-      <Route exact path="/post" element={<InnerPage images={images} />} />
-      <Route exact path="/category" element={<Category images={images} />} />
-      <Route exact path="/contacts" element={<Contacts images={images} />} />
+      <Route
+        exact
+        path="/post"
+        element={
+          <InnerPage localStoreStage={localStoreStage} images={images} />
+        }
+      />
+      <Route exact path="/category" element={<Category localStoreStage={localStoreStage} images={images} />} />
+      <Route
+        exact
+        path="/contacts"
+        element={<Contacts localStoreStage={localStoreStage} images={images} />}
+      />
       <Route
         exact
         path="/searchresult"
-        element={<SearchResult images={images} />}
+        element={
+          <SearchResult localStoreStage={localStoreStage} images={images} />
+        }
       />
-      <Route exact path="/search" element={<SearchInput images={images} />} />
-      <Route exact path="/*" element={<FailPage images={images} />} />
+      <Route
+        exact
+        path="/search"
+        element={
+          <SearchInput localStoreStage={localStoreStage} images={images} />
+        }
+      />
+      <Route
+        exact
+        path="/*"
+        element={<FailPage localStoreStage={localStoreStage} images={images} />}
+      />
     </Routes>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Navigation, Post, Sidebar } from "../../components";
 
-function Category() {
+function Category({ localStoreStage, images }) {
   return (
     <>
       <div id="banner" className="text">
@@ -12,15 +12,15 @@ function Category() {
       </div>
       <div className="container page-height flex-row flex-stretch flex-space content-use">
         <div id="content-flow" className="container category">
-          <Post fullWidth />
-          <Post twoItems />
-          <Post threeItems />
-          <Post fullWidth />
-          <Post twoItems />
-          <Post threeItems />
-          <Navigation />
+          <Post fullWidth images={images} />
+          <Post twoItems images={images} />
+          <Post threeItems images={images} />
+          <Post fullWidth images={images} />
+          <Post twoItems images={images} />
+          <Post threeItems images={images} />
+          <Navigation localStoreStage={localStoreStage} images={images} />
         </div>
-        <Sidebar />
+        <Sidebar localStoreStage={localStoreStage} images={images} />
       </div>
     </>
   );

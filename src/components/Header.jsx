@@ -38,6 +38,7 @@ function Header({ menuOpen, setMenuOpen, localStoreStage }) {
   };
 
   const allNavigation = returnAllNavigation();
+  const phoneRing = localStoreStage.texts.contacts.phone;
 
   return (
     <header
@@ -76,9 +77,7 @@ function Header({ menuOpen, setMenuOpen, localStoreStage }) {
                 referrerPolicy="no-referrer"
               />
             </span>
-            <span>
-              +44 {"("}987{")"} 887-87
-            </span>
+            <span>{phoneRing}</span>
           </div>
           <NavLink activeclassname="active" to="/admin" className="user-logo">
             <img

@@ -1,7 +1,9 @@
 import React from "react";
 
-function FailPage({ images }) {
+function FailPage({ images, localStoreStage }) {
   const ksenchik = images.failPage;
+
+  const { title, button } = localStoreStage.texts.failPage;
 
   return (
     <div id="failpage" className="container flex-center full-width">
@@ -13,10 +15,10 @@ function FailPage({ images }) {
         />
       </div>
       <div className="title">
-        <h1>Something went wrong...</h1>
+        <h1>{title}</h1>
       </div>
       <div className="button nav nav-prev">
-        <span className="text">Return back</span>
+        <span className="text">{button}</span>
         <span className="arrow prev">
           <span></span>
           <span></span>

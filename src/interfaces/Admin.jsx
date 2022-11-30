@@ -13,7 +13,8 @@ import FailPage from "../Pages/FailPage";
 
 function AdminInterface({ localStoreStage }) {
   const [openBar, setOpenBar] = React.useState(false);
-  const [isAdmin, setIsAdmin] = React.useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const [isAdmin, setIsAdmin] = React.useState(false);
 
   const images = localStoreStage.images;
   const openIcon = images.icons.open;
@@ -51,7 +52,13 @@ function AdminInterface({ localStoreStage }) {
             path="/settings"
             element={<AccountSettings images={images} />}
           />
-          <Route exact path="/*" element={<FailPage images={images} />} />
+          <Route
+            exact
+            path="/*"
+            element={
+              <FailPage localStoreStage={localStoreStage} images={images} />
+            }
+          />
         </Routes>
       </div>
     </div>

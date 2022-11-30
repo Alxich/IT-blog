@@ -1,13 +1,16 @@
 import React from "react";
 
-function Sidebar({ images }) {
+function Sidebar({ images, localStoreStage }) {
   const send = images.icons.send;
+
+  const { news, subscription } = localStoreStage.texts;
+  const { title, input, button } = subscription;
 
   return (
     <div id="sidebar">
       <div className="short-news">
         <div className="title">
-          <h4>Featured News</h4>
+          <h4>{news}</h4>
         </div>
         <div className="container">
           <div className="item">
@@ -44,13 +47,13 @@ function Sidebar({ images }) {
       </div>
       <div className="form subscribe">
         <div className="title">
-          <h4>Newsletter subscription</h4>
+          <h4>{title}</h4>
         </div>
         <form>
-          <input placeholder="Email@gmail.com" />
+          <input placeholder={input} />
           <button className="button subscribe">
-            <span>Subscribe</span>
-            <img src={send} alt="arrow-send" referrerPolicy="no-referrer"/>
+            <span>{button}</span>
+            <img src={send} alt="arrow-send" referrerPolicy="no-referrer" />
           </button>
         </form>
       </div>

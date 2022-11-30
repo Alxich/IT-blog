@@ -3,10 +3,12 @@ import classnames from "classnames";
 
 import { Sidebar } from "../../components";
 
-function InnerPage({ images }) {
-  const banner = images.blogExample.innerPage.inner[0];
-  const bannerEnd = images.blogExample.innerPage.inner[1];
-  const addInfo = images.blogExample.innerPage.inner[2];
+function InnerPage({ images, localStoreStage }) {
+  const banner = images.blogExample.inner[0];
+  const bannerEnd = images.blogExample.inner[1];
+  const addInfo = images.blogExample.inner[2];
+
+  const { nextNews, previosNews } = localStoreStage.texts.navigation;
 
   const text = [
     'As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: "I want to calculate that I am ready, not particularly in demand, but what do you really need?" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.',
@@ -78,14 +80,14 @@ function InnerPage({ images }) {
           </div>
           <div className="navigation buttons">
             <div className="button nav nav-prev">
-              <span className="text">Previous news</span>
+              <span className="text">{previosNews}</span>
               <span className="arrow prev">
                 <span></span>
                 <span></span>
               </span>
             </div>
             <div className="button nav nav-next">
-              <span className="text">Next news</span>
+              <span className="text">{nextNews}</span>
               <span className="arrow next">
                 <span></span>
                 <span></span>
@@ -93,7 +95,7 @@ function InnerPage({ images }) {
             </div>
           </div>
         </div>
-        <Sidebar />
+        <Sidebar images={images} localStoreStage={localStoreStage} />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ function Footer({ localStoreStage }) {
   const navigationFooter = localStoreStage.navigation.footer;
   const images = localStoreStage.images;
   const logo = images.logo;
+  const corporationRights = localStoreStage.texts.corporationRights;
 
   return (
     <footer className="colophon">
@@ -27,7 +28,7 @@ function Footer({ localStoreStage }) {
           })}
         </ul>
         <div className="privacy">
-          <p>LLC "Organization" 2022. All rights reserved.</p>
+          <p>{corporationRights}</p>
         </div>
       </div>
     </footer>

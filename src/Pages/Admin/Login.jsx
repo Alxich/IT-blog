@@ -1,7 +1,8 @@
 import React from "react";
 
 function Login({ images }) {
-  const loginIcon = images.icon.open;
+  const loginIcon = images.icons.open;
+
   return (
     <div id="login">
       <div className="title">
