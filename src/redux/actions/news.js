@@ -1,5 +1,26 @@
 import axios from "axios";
 
+export const fetchNewOne = (id) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_NEWS",
+    payload: false,
+  });
+
+  axios
+    .get(`/news?id=${id}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setNewOne(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const fetchNews = (count) => async (dispatch) => {
   dispatch({
     type: "SET_LOADED_NEWS",
@@ -82,5 +103,10 @@ export const setNewsData = (ids, count) => async (dispatch) => {
 
 export const setNews = (data) => ({
   type: "FETCH_NEWS",
+  payload: data,
+});
+
+export const setNewOne = (data) => ({
+  type: "FETCH_NEWONE",
   payload: data,
 });

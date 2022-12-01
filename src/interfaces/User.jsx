@@ -38,6 +38,21 @@ function UserInterface({
           <InnerPage
             localStoreStage={localStoreStage}
             postRequest={postRequest}
+            setPosthRequest={setPosthRequest}
+            fetchType={false}
+            images={images}
+          />
+        }
+      />
+      <Route
+        exact
+        path="/news"
+        element={
+          <InnerPage
+            localStoreStage={localStoreStage}
+            postRequest={postRequest}
+            setPosthRequest={setPosthRequest}
+            fetchType={true}
             images={images}
           />
         }

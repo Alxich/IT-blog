@@ -39,7 +39,7 @@ function Home({ localStoreStage, images, setPosthRequest }) {
               .map((_, index) => <PostLoading key={index} />)
           )}
         </div>
-        <Sidebar images={images} localStoreStage={localStoreStage} />
+        <Sidebar images={images} localStoreStage={localStoreStage} setPosthRequest={setPosthRequest} />
       </div>
     </>
   );

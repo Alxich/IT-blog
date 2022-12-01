@@ -1,9 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchNews } from "../redux/actions/news";
 import NewsLoading from "./NewsLoading";
 
-function Sidebar({ images, localStoreStage }) {
+function Sidebar({ images, localStoreStage, setPosthRequest }) {
   const dispatch = useDispatch();
   const localNews = useSelector(({ newsData }) => newsData.news);
 
@@ -36,14 +37,19 @@ function Sidebar({ images, localStoreStage }) {
         <div className="container">
           {isLoaded
             ? localNews.map((item, i) => (
-                <div className="item" key={`${item}__${i}`}>
+                <Link
+                  to="/news"
+                  className="item"
+                  key={`${item}__${i}`}
+                  onClick={() => setPosthRequest(item.id)}
+                >
                   <div className="title">
                     <h5>{item.title}</h5>
                   </div>
                   <div className="date">
                     <p>{item.data}</p>
                   </div>
-                </div>
+                </Link>
               ))
             : Array(3)
                 .fill(0)
