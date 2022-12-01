@@ -1,8 +1,50 @@
 import axios from "axios";
 
+export const searchPost = (name) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_POST",
+    payload: false,
+  });
+
+  axios
+    .get(`/posts?title_like=${name}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setPosts(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const fetchPost = (id) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_POST",
+    payload: false,
+  });
+
+  axios
+    .get(`/posts?id=${id}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setPost(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const fetchPosts = (count) => async (dispatch) => {
   dispatch({
-    type: "SET_LOADED",
+    type: "SET_LOADED_POST",
     payload: false,
   });
 
@@ -38,7 +80,7 @@ export const fetchPosts = (count) => async (dispatch) => {
 export const setPostsData = (ids, count) => async (dispatch) => {
   function getValues(getQa) {
     dispatch({
-      type: "SET_LOADED",
+      type: "SET_LOADED_POST",
       payload: false,
     });
 
@@ -82,5 +124,10 @@ export const setPostsData = (ids, count) => async (dispatch) => {
 
 export const setPosts = (data) => ({
   type: "FETCH_POSTS",
+  payload: data,
+});
+
+export const setPost = (data) => ({
+  type: "FETCH_POST",
   payload: data,
 });

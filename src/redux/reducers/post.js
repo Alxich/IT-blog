@@ -20,7 +20,7 @@ const postsData = (state = initialState, action) => {
         isLoaded: true,
       };
 
-    case "SET_LOADED":
+    case "SET_LOADED_POST":
       return {
         ...state,
         isLoaded: action.payload,

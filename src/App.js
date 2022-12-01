@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
-import { Footer, Header, LoadingPage } from "./components";
+import { Footer, Header, LoadingPage, SearchInput } from "./components";
 import UserInterface from "./interfaces/User";
 import AdminInterface from "./interfaces/Admin";
 import { fetchData } from "./redux/actions/app";
@@ -22,6 +22,9 @@ function App() {
 
   const localStoreStage = useSelector(({ appData }) => appData.defaultData);
   const [menuOpen, setMenuOpen] = React.useState();
+  const [searchOpen, setSearchOpen] = React.useState();
+  const [searchRequest, setSearchRequest] = React.useState();
+  const [postRequest, setPosthRequest] = React.useState();
 
   React.useEffect(() => {
     dispatch(fetchData());
@@ -34,7 +37,16 @@ function App() {
           <Header
             setMenuOpen={setMenuOpen}
             menuOpen={menuOpen}
+            searchOpen={searchOpen}
+            setSearchOpen={setSearchOpen}
             localStoreStage={localStoreStage}
+          />
+          <SearchInput
+            searchOpen={searchOpen}
+            setSearchOpen={setSearchOpen}
+            localStoreStage={localStoreStage}
+            images={localStoreStage.images}
+            setSearchRequest={setSearchRequest}
           />
           <main className="wrapper">
             <Routes>
@@ -46,7 +58,14 @@ function App() {
               <Route
                 exact
                 path="/*"
-                element={<UserInterface localStoreStage={localStoreStage} />}
+                element={
+                  <UserInterface
+                    localStoreStage={localStoreStage}
+                    searchRequest={searchRequest}
+                    postRequest={postRequest}
+                    setPosthRequest={setPosthRequest}
+                  />
+                }
               ></Route>
             </Routes>
           </main>

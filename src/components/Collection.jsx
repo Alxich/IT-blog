@@ -1,17 +1,21 @@
 import React from "react";
 import Post from "./PostBlock/Post";
 
-function Collection({ posts, images }) {
+function Collection({ posts, images, setPosthRequest }) {
   const returnOnePost = (postOne) => {
     return (
       <Post
+        id={postOne.id}
         category={postOne.category}
         title={postOne.title}
         data={postOne.data}
         fullWidth
         images={images}
-        key={`${postOne}_special`}
-      />
+        setPosthRequest={setPosthRequest}
+        key={`${postOne}_special_${postOne.id}`}
+      >
+        {postOne.shortDesc}
+      </Post>
     );
   };
 
@@ -19,15 +23,19 @@ function Collection({ posts, images }) {
     return (
       <Post
         twoItems
+        idSecond={postTwo.id}
         images={images}
         imageSrc={postTwo.imageSrc}
         categorySecond={postTwo.category}
         titleSecond={postTwo.title}
         dataSecond={postTwo.data}
+        textSecond={postTwo.shortDesc}
+        idThird={postThree.id}
         categoryThird={postThree.category}
         titleThird={postThree.title}
         dataThird={postThree.data}
-        key={`${postTwo}_2_special`}
+        setPosthRequest={setPosthRequest}
+        key={`${postTwo}_2_special_${postTwo.id}`}
       />
     );
   };
@@ -36,18 +44,22 @@ function Collection({ posts, images }) {
     return (
       <Post
         threeItems
+        id={postOne.id}
         images={images}
         imageSrc={postOne.imageSrc}
         category={postOne.category}
         title={postOne.title}
         data={postOne.data}
+        idSecond={postTwo.id}
         categorySecond={postTwo.category}
         titleSecond={postTwo.title}
         dataSecond={postTwo.data}
+        idThird={postThree.id}
         categoryThird={postThree.category}
         titleThird={postThree.title}
         dataThird={postThree.data}
-        key={`${postThree}_3_special`}
+        setPosthRequest={setPosthRequest}
+        key={`${postThree}_3_special_${postThree.id}`}
       />
     );
   };

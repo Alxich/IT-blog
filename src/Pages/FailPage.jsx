@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function FailPage({ images, localStoreStage }) {
   const ksenchik = images.failPage;
@@ -17,13 +18,13 @@ function FailPage({ images, localStoreStage }) {
       <div className="title">
         <h1>{title}</h1>
       </div>
-      <div className="button nav nav-prev">
+      <Link to="/" className="button nav nav-prev">
         <span className="text">{button}</span>
         <span className="arrow prev">
           <span></span>
           <span></span>
         </span>
-      </div>
+      </Link>
     </div>
   );
 }

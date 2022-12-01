@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchNews = (count) => async (dispatch) => {
   dispatch({
-    type: "SET_LOADED",
+    type: "SET_LOADED_NEWS",
     payload: false,
   });
 
@@ -38,7 +38,7 @@ export const fetchNews = (count) => async (dispatch) => {
 export const setNewsData = (ids, count) => async (dispatch) => {
   function getValues(getQa) {
     dispatch({
-      type: "SET_LOADED",
+      type: "SET_LOADED_NEWS",
       payload: false,
     });
 
@@ -71,8 +71,6 @@ export const setNewsData = (ids, count) => async (dispatch) => {
 
   const arrayToShow = () => {
     let questionIdGet = idArray.splice(1).join("&id=");
-
-    console.log(questionIdGet);
 
     return `?id=${idArray[0]}${questionIdGet && "&id=" + questionIdGet}`;
   };

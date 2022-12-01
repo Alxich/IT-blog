@@ -8,3 +8,4 @@ export { default as Navigation } from "./Navigation";
 export { default as AdminBar } from "./AdminBar";
 export { default as LoadingPage } from "./LoadingPage";
 export { default as Collection } from "./Collection";
+export { default as InnerPageLoading } from "./InnerPageLoading";

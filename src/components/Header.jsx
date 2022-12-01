@@ -2,7 +2,13 @@ import React from "react";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 
-function Header({ menuOpen, setMenuOpen, localStoreStage }) {
+function Header({
+  menuOpen,
+  setMenuOpen,
+  localStoreStage,
+  searchOpen,
+  setSearchOpen,
+}) {
   const images = localStoreStage.images;
   const { logo, userLogo, icons } = images;
   const navigation = localStoreStage.navigation.header;
@@ -53,8 +59,34 @@ function Header({ menuOpen, setMenuOpen, localStoreStage }) {
         <div className="actions-nav container flex-row flex-space width-auto to-right">
           <ul className="navigation container flex-row flex-space width-auto">
             {navigation.map((item, i) => {
-              return (
-                <li key={`${item}__${i}`}>
+              return item === "Search" ? (
+                <li
+                  key={`${item}__${i}`}
+                  onClick={(e) => {
+                    searchOpen ? setSearchOpen(false) : setSearchOpen(true);
+                  }}
+                >
+                  {item === "Search" ? (
+                    searchOpen ? (
+                      "Close"
+                    ) : (
+                      item
+                    )
+                  ) : (
+                    <NavLink
+                      activeclassname="active"
+                      to={
+                        item === "Home"
+                          ? "/"
+                          : item.toLowerCase().replace(" ", "")
+                      }
+                    >
+                      {item}
+                    </NavLink>
+                  )}
+                </li>
+              ) : (
+                <li key={`${item}__${i}`} onClick={() => setSearchOpen(false)}>
                   <NavLink
                     activeclassname="active"
                     to={

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Collection, Sidebar, PostLoading } from "../../components";
 import { fetchPosts } from "../../redux/actions/post";
 
-function Home({ localStoreStage, images }) {
+function Home({ localStoreStage, images, setPosthRequest }) {
   const dispatch = useDispatch();
   const localPosts = useSelector(({ postsData }) => postsData.posts);
   const { banner } = images;
@@ -32,7 +32,7 @@ function Home({ localStoreStage, images }) {
       <div className="container page-height flex-row flex-stretch flex-space content-use">
         <div id="content-flow" className="container">
           {isLoaded ? (
-            <Collection posts={localPosts} images={images} />
+            <Collection posts={localPosts} setPosthRequest={setPosthRequest} images={images} />
           ) : (
             Array(8)
               .fill(0)

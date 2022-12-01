@@ -24,11 +24,17 @@
   height: 100px;
   max-width: 1040px;
   width: calc(100% - 15px);
-  top: 160px;
+  top: -999px;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all $transition-slow;
   padding: 25px 40px;
   z-index: 2;
+
+  &.active {
+    top: 160px;
+    transition: all $transition-normal;
+  }
 }
 
 @media only screen and (max-width: 600px) {
