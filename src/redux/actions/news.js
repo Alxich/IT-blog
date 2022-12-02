@@ -21,6 +21,27 @@ export const fetchNewOne = (id) => (dispatch) => {
     });
 };
 
+export const fetchRelatedNews = (category, id) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_POST",
+    payload: false,
+  });
+
+  axios
+    .get(`/news?category=${category}&id_ne=${id}&_limit=2`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setRelatedNews(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const fetchNews = (count) => async (dispatch) => {
   dispatch({
     type: "SET_LOADED_NEWS",
@@ -108,5 +129,10 @@ export const setNews = (data) => ({
 
 export const setNewOne = (data) => ({
   type: "FETCH_NEWONE",
+  payload: data,
+});
+
+export const setRelatedNews = (data) => ({
+  type: "FETCH_RELATED_NEWS",
   payload: data,
 });

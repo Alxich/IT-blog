@@ -46,7 +46,7 @@ function UserInterface({
       />
       <Route
         exact
-        path="/news"
+        path="/newspage"
         element={
           <InnerPage
             localStoreStage={localStoreStage}

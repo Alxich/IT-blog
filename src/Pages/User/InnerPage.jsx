@@ -3,9 +3,10 @@ import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 
 import { InnerPageLoading, Sidebar } from "../../components";
-import { fetchPost } from "../../redux/actions/post";
-import { fetchNewOne } from "../../redux/actions/news";
+import { fetchPost, fetchRelatedPost } from "../../redux/actions/post";
+import { fetchNewOne, fetchRelatedNews } from "../../redux/actions/news";
 import FailPage from "../FailPage";
+import { Link } from "react-router-dom";
 
 function InnerPage({
   images,
@@ -24,13 +25,25 @@ function InnerPage({
   const { nextNews, previosNews } = localStoreStage.texts.navigation;
   const newsStoreData = useSelector(({ newsData }) => newsData.newOne[0]);
   const postStoreData = useSelector(({ postsData }) => postsData.post[0]);
+  const postRealtedData = useSelector(({ postsData }) => postsData.related[0]);
+  const newsRealtedData = useSelector(({ newsData }) => newsData.related[0]);
   const loadedNewsTarget = useSelector(({ newsData }) => newsData.isLoaded);
   const loadedTarget = useSelector(({ postsData }) => postsData.isLoaded);
 
   React.useEffect(() => {
+    setIsLoaded(false);
     dispatch(fetchPost(postRequest));
     dispatch(fetchNewOne(postRequest));
+    dispatch(fetchRelatedPost(postRequest));
   }, [dispatch, postRequest]);
+
+  React.useEffect(() => {
+    postStoreData || (newsStoreData && setIsLoaded(false));
+    postStoreData &&
+      dispatch(fetchRelatedPost(postStoreData.category, postStoreData.id));
+    newsStoreData &&
+      dispatch(fetchRelatedNews(newsStoreData.category, newsStoreData.id));
+  }, [dispatch, postStoreData, newsStoreData]);
 
   React.useEffect(() => {
     if (isLoaded !== true) {
@@ -40,7 +53,7 @@ function InnerPage({
     }
   }, [isLoaded, loadedTarget, loadedNewsTarget]);
 
-  return isLoaded  ? (
+  return isLoaded ? (
     postRequest > -1 ? (
       !fetchType ? (
         <>
@@ -72,23 +85,23 @@ function InnerPage({
                         })}
                         key={`${item}__${i}`}
                       >
-                        {i % 2 !== 0 && (
-                          <div className="related">
+                        {i % 2 !== 0 && postRealtedData && (
+                          <Link
+                            to="/post"
+                            onClick={() => setPosthRequest(postRealtedData.id)}
+                            className="related"
+                          >
                             <div className="thumbnail">
                               <img
-                                src={addInfo}
+                                src={postRealtedData.imageSrc}
                                 alt="related-bonus-info"
                                 referrerPolicy="no-referrer"
                               />
                             </div>
                             <div className="title">
-                              <p>
-                                Taking into account the procedure can turn into
-                                an interesting task, a kind of "challenge" when
-                                moving to a new level.
-                              </p>
+                              <p>{postRealtedData.title}</p>
                             </div>
-                          </div>
+                          </Link>
                         )}
                         <p>{item.textOne}</p>
                         <p>{item.textTwo}</p>
@@ -157,23 +170,23 @@ function InnerPage({
                         })}
                         key={`${item}__${i}`}
                       >
-                        {i % 2 !== 0 && (
-                          <div className="related">
+                        {i % 2 !== 0 && newsRealtedData && (
+                          <Link
+                            to="/newspage"
+                            onClick={() => setPosthRequest(newsRealtedData.id)}
+                            className="related"
+                          >
                             <div className="thumbnail">
                               <img
-                                src={addInfo}
+                                src={newsRealtedData.imageSrc}
                                 alt="related-bonus-info"
                                 referrerPolicy="no-referrer"
                               />
                             </div>
                             <div className="title">
-                              <p>
-                                Taking into account the procedure can turn into
-                                an interesting task, a kind of "challenge" when
-                                moving to a new level.
-                              </p>
+                              <p>{newsRealtedData.title}</p>
                             </div>
-                          </div>
+                          </Link>
                         )}
                         <p>{item.textOne}</p>
                         <p>{item.textTwo}</p>

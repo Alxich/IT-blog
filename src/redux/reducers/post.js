@@ -1,6 +1,7 @@
 const initialState = {
   posts: [],
   post: {},
+  related: [],
   isLoaded: false,
 };
 
@@ -17,6 +18,13 @@ const postsData = (state = initialState, action) => {
       return {
         ...state,
         post: action.payload,
+        isLoaded: true,
+      };
+
+    case "FETCH_RELATED_POST":
+      return {
+        ...state,
+        related: action.payload,
         isLoaded: true,
       };
 

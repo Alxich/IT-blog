@@ -38,7 +38,7 @@ function Sidebar({ images, localStoreStage, setPosthRequest }) {
           {isLoaded
             ? localNews.map((item, i) => (
                 <Link
-                  to="/news"
+                  to="/newspage"
                   className="item"
                   key={`${item}__${i}`}
                   onClick={() => setPosthRequest(item.id)}
