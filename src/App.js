@@ -25,10 +25,52 @@ function App() {
   const [searchOpen, setSearchOpen] = React.useState();
   const [searchRequest, setSearchRequest] = React.useState();
   const [postRequest, setPosthRequest] = React.useState();
+  const [postCatRequest, setPostCatRequest] = React.useState("");
+  const [newsCatRequest, setNewsCatRequest] = React.useState("");
 
   React.useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
+
+  /**
+   * Adds a query string parameter in the provided url.
+   * Update parameter if it already exists.
+   * Does nothing if value is null or undefined.
+   *
+   * @param {string} url to modify.
+   * @param {string} key of query parameter.
+   * @param {string} value of query parameter.
+   *
+   * @returns {string} modified url.
+   */
+
+  function addQueryStringParameter(url, key, value) {
+    if (value === null || value === undefined) {
+      return url;
+    }
+
+    value = encodeURIComponent(value);
+
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i"),
+      separator = url.indexOf("?") !== -1 ? "&" : "?";
+    if (url.match(re)) {
+      return url.replace(re, "$1" + key + "=" + value + "$2");
+    } else {
+      return url + separator + key + "=" + value;
+    }
+  }
+
+  function changeUrl(pageTitle, urlTitle) {
+    const title = pageTitle;
+    let pageUrl = addQueryStringParameter(document.URL, "", urlTitle);
+
+    document.title = title;
+    window.history.pushState(
+      null,
+      { pageTitle: title ? title : "IT-blog" },
+      urlTitle ? pageUrl : ""
+    );
+  }
 
   return (
     <div className="App">
@@ -47,13 +89,19 @@ function App() {
             localStoreStage={localStoreStage}
             images={localStoreStage.images}
             setSearchRequest={setSearchRequest}
+            changeUrl={changeUrl}
           />
           <main className="wrapper">
             <Routes>
               <Route
                 exact
                 path="/admin/*"
-                element={<AdminInterface localStoreStage={localStoreStage} />}
+                element={
+                  <AdminInterface
+                    localStoreStage={localStoreStage}
+                    changeUrl={changeUrl}
+                  />
+                }
               ></Route>
               <Route
                 exact
@@ -62,8 +110,13 @@ function App() {
                   <UserInterface
                     localStoreStage={localStoreStage}
                     searchRequest={searchRequest}
+                    postCatRequest={postCatRequest}
                     postRequest={postRequest}
                     setPosthRequest={setPosthRequest}
+                    setPostCatRequest={setPostCatRequest}
+                    newsCatRequest={newsCatRequest}
+                    setNewsCatRequest={setNewsCatRequest}
+                    changeUrl={changeUrl}
                   />
                 }
               ></Route>

@@ -13,20 +13,24 @@ function InnerPage({
   localStoreStage,
   postRequest,
   setPosthRequest,
+  setPostCatRequest,
+  setNewsCatRequest,
   fetchType,
+  changeUrl,
 }) {
   // Fetch type false - post or true - news
-
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = React.useState(false);
   const banner = images.blogExample.inner[0];
   const bannerEnd = images.blogExample.inner[1];
-  const addInfo = images.blogExample.inner[2];
   const { nextNews, previosNews } = localStoreStage.texts.navigation;
+
   const newsStoreData = useSelector(({ newsData }) => newsData.newOne[0]);
+  const newsRealtedData = useSelector(({ newsData }) => newsData.related[0]);
+
   const postStoreData = useSelector(({ postsData }) => postsData.post[0]);
   const postRealtedData = useSelector(({ postsData }) => postsData.related[0]);
-  const newsRealtedData = useSelector(({ newsData }) => newsData.related[0]);
+
   const loadedNewsTarget = useSelector(({ newsData }) => newsData.isLoaded);
   const loadedTarget = useSelector(({ postsData }) => postsData.isLoaded);
 
@@ -38,12 +42,24 @@ function InnerPage({
   }, [dispatch, postRequest]);
 
   React.useEffect(() => {
+    changeUrl(
+      !fetchType
+        ? postStoreData
+          ? postStoreData.title
+          : newsStoreData && newsStoreData.title
+        : newsStoreData && newsStoreData.title,
+      !fetchType
+        ? postStoreData
+          ? postStoreData.title
+          : newsStoreData && newsStoreData.title
+        : newsStoreData && newsStoreData.title
+    );
     postStoreData || (newsStoreData && setIsLoaded(false));
     postStoreData &&
       dispatch(fetchRelatedPost(postStoreData.category, postStoreData.id));
     newsStoreData &&
       dispatch(fetchRelatedNews(newsStoreData.category, newsStoreData.id));
-  }, [dispatch, postStoreData, newsStoreData]);
+  }, [dispatch, postStoreData, newsStoreData, changeUrl, fetchType]);
 
   React.useEffect(() => {
     if (isLoaded !== true) {
@@ -63,9 +79,15 @@ function InnerPage({
           <div className="container page-height flex-row flex-stretch flex-space content-use">
             <div id="content">
               <div className="short-info">
-                <div className="category">
+                <Link
+                  to="/category"
+                  className="category"
+                  onClick={() => {
+                    setPostCatRequest(postStoreData.category);
+                  }}
+                >
                   <p>{postStoreData.category}</p>
-                </div>
+                </Link>
                 <div className="date">
                   <p>{postStoreData.data}</p>
                 </div>
@@ -148,9 +170,13 @@ function InnerPage({
           <div className="container page-height flex-row flex-stretch flex-space content-use">
             <div id="content">
               <div className="short-info">
-                <div className="category">
+                <Link
+                  to="/news/category"
+                  className="category"
+                  onClick={() => setNewsCatRequest(newsStoreData.category)}
+                >
                   <p>{newsStoreData.category}</p>
-                </div>
+                </Link>
                 <div className="date">
                   <p>{newsStoreData.data}</p>
                 </div>
@@ -227,7 +253,11 @@ function InnerPage({
         </>
       )
     ) : (
-      <FailPage localStoreStage={localStoreStage} images={images} />
+      <FailPage
+        localStoreStage={localStoreStage}
+        images={images}
+        changeUrl={changeUrl}
+      />
     )
   ) : (
     <div className="container page-height flex-row flex-stretch flex-space content-use">

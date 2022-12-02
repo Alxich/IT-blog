@@ -1,6 +1,6 @@
 import React from "react";
 
-function Contacts({ images, localStoreStage }) {
+function Contacts({ images, localStoreStage, changeUrl }) {
   const iconPhone = images.icons.phone;
   const send = images.icons.send;
   const iconMap = images.icons.map;
@@ -10,6 +10,8 @@ function Contacts({ images, localStoreStage }) {
 
   const { title, phone, address, socials, form } =
     localStoreStage.texts.contacts;
+
+  changeUrl("Contact us");
 
   return (
     <div id="contacts">

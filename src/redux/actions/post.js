@@ -63,6 +63,27 @@ export const fetchRelatedPost = (category, id) => (dispatch) => {
     });
 };
 
+export const fetchCatPost = (category) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_POST",
+    payload: false,
+  });
+
+  axios
+    .get(`/posts?category=${category}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setCatPost(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const fetchPosts = (count) => async (dispatch) => {
   dispatch({
     type: "SET_LOADED_POST",
@@ -155,5 +176,10 @@ export const setPost = (data) => ({
 
 export const setRelatedPost = (data) => ({
   type: "FETCH_RELATED_POST",
+  payload: data,
+});
+
+export const setCatPost = (data) => ({
+  type: "FETCH_CATEGORY_POSTS",
   payload: data,
 });

@@ -15,6 +15,20 @@ const newsData = (state = initialState, action) => {
         isLoaded: true,
       };
 
+    case "FETCH_ALL_NEWS":
+      return {
+        ...state,
+        news: action.payload,
+        isLoaded: true,
+      };
+
+    case "FETCH_CATEGORY_NEWS":
+      return {
+        ...state,
+        news: action.payload,
+        isLoaded: true,
+      };
+
     case "FETCH_NEWONE":
       return {
         ...state,

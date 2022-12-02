@@ -1,7 +1,14 @@
 import React from "react";
 import Post from "./PostBlock/Post";
 
-function Collection({ posts, images, setPosthRequest }) {
+function Collection({
+  posts,
+  images,
+  setPosthRequest,
+  setPostCatRequest,
+  setNewsCatRequest,
+  type,
+}) {
   const returnOnePost = (postOne) => {
     return (
       <Post
@@ -12,6 +19,9 @@ function Collection({ posts, images, setPosthRequest }) {
         fullWidth
         images={images}
         setPosthRequest={setPosthRequest}
+        setPostCatRequest={setPostCatRequest}
+        setNewsCatRequest={setNewsCatRequest}
+        type={type}
         key={`${postOne}_special_${postOne.id}`}
       >
         {postOne.shortDesc}
@@ -35,6 +45,9 @@ function Collection({ posts, images, setPosthRequest }) {
         titleThird={postThree.title}
         dataThird={postThree.data}
         setPosthRequest={setPosthRequest}
+        setPostCatRequest={setPostCatRequest}
+        setNewsCatRequest={setNewsCatRequest}
+        type={type}
         key={`${postTwo}_2_special_${postTwo.id}`}
       />
     );
@@ -59,6 +72,9 @@ function Collection({ posts, images, setPosthRequest }) {
         titleThird={postThree.title}
         dataThird={postThree.data}
         setPosthRequest={setPosthRequest}
+        setPostCatRequest={setPostCatRequest}
+        setNewsCatRequest={setNewsCatRequest}
+        type={type}
         key={`${postThree}_3_special_${postThree.id}`}
       />
     );

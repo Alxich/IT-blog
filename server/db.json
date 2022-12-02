@@ -51,7 +51,8 @@
     },
     "texts": {
       "corporationRights": "LLC \"Organization\" 2022. All rights reserved.",
-      "news": "Featured News",
+      "news": "Latest News",
+      "categoryFail": "Category not found",
       "subscription": {
         "title": "Newsletter subscription",
         "input": "Email@gmail.com",

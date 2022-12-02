@@ -9,6 +9,7 @@ function SearchResult({
   localStoreStage,
   searchRequest,
   setPosthRequest,
+  changeUrl,
 }) {
   const dispatch = useDispatch();
   const localPosts = useSelector(({ postsData }) => postsData.posts);
@@ -20,7 +21,8 @@ function SearchResult({
   React.useEffect(() => {
     loadTurnOf();
     dispatch(searchPost(searchRequest));
-  }, [dispatch, searchRequest]);
+    changeUrl(`Searching: ${searchRequest}`, searchRequest);
+  }, [changeUrl, dispatch, searchRequest]);
 
   const [isLoaded, setIsLoaded] = React.useState(false);
   const loadedTarget = useSelector(({ postsData }) => postsData.isLoaded);
@@ -62,6 +64,7 @@ function SearchResult({
             posts={currentRecords}
             setPosthRequest={setPosthRequest}
             images={images}
+            type={false}
           />
         ) : (
           Array(8)

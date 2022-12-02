@@ -25,23 +25,34 @@ function Post({
   textSecond,
   children,
   setPosthRequest,
+  setPostCatRequest,
+  setNewsCatRequest,
+  type,
 }) {
   const gearIcon = images.icons.gear;
   const returnMeContent = () => {
     return fullWidth ? (
       <>
         <div className="short-info">
-          <div className="category">
+          <Link
+            to={type ? "/news/category" : "/category"}
+            className="category"
+            onClick={() =>
+              type ? setNewsCatRequest(category) : setPostCatRequest(category)
+            }
+          >
             <p>{category && category}</p>
-          </div>
+          </Link>
           <div className="date">
             <p>{data && data}</p>
           </div>
         </div>
-        <div className="title">
+        <Link to="/post" className="title">
           <h3>{title && title}</h3>
-        </div>
-        <div className="text-block">{children && children}</div>
+        </Link>
+        <Link to="/post" className="text-block">
+          {children && children}
+        </Link>
         {edit && (
           <div className="button edit">
             <span className="text">Edit this post</span>
@@ -58,30 +69,26 @@ function Post({
       </>
     ) : twoItems ? (
       <>
-        <Link
-          to="/post"
-          className="item big"
-          onClick={() => setPosthRequest(idSecond)}
-        >
+        <div className="item big" onClick={() => setPosthRequest(idSecond)}>
           <div className="short-info">
-            <div className="category">
+            <Link
+              to="/category"
+              className="category"
+              onClick={() => setPostCatRequest(categorySecond)}
+            >
               <p>{categorySecond && categorySecond}</p>
-            </div>
+            </Link>
             <div className="date">
               <p>{dataSecond && dataSecond}</p>
             </div>
           </div>
-          <div className="title">
+          <Link to="/post" className="title">
             <h3>{titleSecond && titleSecond}</h3>
-          </div>
+          </Link>
           <div className="text-block">{textSecond && textSecond}</div>
-        </Link>
-        <Link
-          to="/post"
-          className="item small"
-          onClick={() => setPosthRequest(idThird)}
-        >
-          <div className="background">
+        </div>
+        <div className="item small" onClick={() => setPosthRequest(idThird)}>
+          <Link to="/post" className="background">
             {imageSrc ? (
               <img
                 src={imageSrc}
@@ -91,65 +98,69 @@ function Post({
             ) : (
               ""
             )}
-          </div>
+          </Link>
           <div className="content">
-            <div className="category">
+            <Link
+              to="/category"
+              className="category"
+              onClick={() => setPostCatRequest(categoryThird)}
+            >
               <p>{categoryThird && categoryThird}</p>
-            </div>
-            <div className="title">
+            </Link>
+            <Link to="/post" className="title">
               <h3>{titleThird && titleThird}</h3>
-            </div>
+            </Link>
             <div className="date">
               <p>{dataThird && dataThird}</p>
             </div>
           </div>
-        </Link>
+        </div>
       </>
     ) : (
       threeItems && (
         <>
           <div className="items-cn">
-            <Link
-              to="/post"
-              className="item big"
-              onClick={() => setPosthRequest(id)}
-            >
+            <div className="item big" onClick={() => setPosthRequest(id)}>
               <div className="short-info">
-                <div className="category">
+                <Link
+                  to="/category"
+                  className="category"
+                  onClick={() =>
+                    type
+                      ? setNewsCatRequest(category)
+                      : setPostCatRequest(category)
+                  }
+                >
                   <p>{category && category}</p>
-                </div>
+                </Link>
                 <div className="date">
                   <p>{data && data}</p>
                 </div>
               </div>
-              <div className="title">
+              <Link to="/post" className="title">
                 <h3>{title && title}</h3>
-              </div>
-            </Link>
-            <Link
-              to="/post"
-              className="item big"
-              onClick={() => setPosthRequest(idSecond)}
-            >
+              </Link>
+            </div>
+            <div className="item big" onClick={() => setPosthRequest(idSecond)}>
               <div className="short-info">
-                <div className="category">
+                <Link
+                  to="/category"
+                  className="category"
+                  onClick={() => setPostCatRequest(categorySecond)}
+                >
                   <p>{categorySecond && categorySecond}</p>
-                </div>
+                </Link>
                 <div className="date">
                   <p>{dataSecond && dataSecond}</p>
                 </div>
               </div>
-              <div className="title">
+              <Link to="/post" className="title">
                 <h3>{titleSecond && titleSecond}</h3>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
-          <Link
-            to="/post"
-            className="item small"
-            onClick={() => setPosthRequest(idThird)}
-          >
-            <div className="background">
+          <div className="item small" onClick={() => setPosthRequest(idThird)}>
+            <Link to="/post" className="background">
               {imageSrc ? (
                 <img
                   src={imageSrc}
@@ -159,26 +170,30 @@ function Post({
               ) : (
                 ""
               )}
-            </div>
+            </Link>
             <div className="content">
-              <div className="category">
+              <Link
+                to="/category"
+                className="category"
+                onClick={() => setPostCatRequest(categoryThird)}
+              >
                 <p>{categoryThird && categoryThird}</p>
-              </div>
-              <div className="title">
+              </Link>
+              <Link to="/post" className="title">
                 <h3>{titleThird && titleThird}</h3>
-              </div>
+              </Link>
               <div className="date">
                 <p>{dataThird && dataThird}</p>
               </div>
             </div>
-          </Link>
+          </div>
         </>
       )
     );
   };
 
-  return fullWidth ? (
-    <Link
+  return (
+    <div
       to="/post"
       className={classNames("post", className, {
         "full-width": fullWidth,
@@ -186,16 +201,6 @@ function Post({
         "three-items": threeItems,
       })}
       onClick={() => fullWidth && setPosthRequest(id)}
-    >
-      {returnMeContent()}
-    </Link>
-  ) : (
-    <div
-      className={classNames("post", className, {
-        "full-width": fullWidth,
-        "two-items": twoItems,
-        "three-items": threeItems,
-      })}
     >
       {returnMeContent()}
     </div>

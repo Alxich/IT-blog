@@ -13,8 +13,12 @@ import FailPage from "../Pages/FailPage";
 function UserInterface({
   localStoreStage,
   searchRequest,
+  postCatRequest,
   postRequest,
   setPosthRequest,
+  setNewsCatRequest,
+  changeUrl,
+  setPostCatRequest,
 }) {
   const images = localStoreStage.images;
 
@@ -28,6 +32,8 @@ function UserInterface({
             localStoreStage={localStoreStage}
             images={images}
             setPosthRequest={setPosthRequest}
+            setPostCatRequest={setPostCatRequest}
+            changeUrl={changeUrl}
           />
         }
       />
@@ -39,8 +45,11 @@ function UserInterface({
             localStoreStage={localStoreStage}
             postRequest={postRequest}
             setPosthRequest={setPosthRequest}
+            setPostCatRequest={setPostCatRequest}
+            setNewsCatRequest={setNewsCatRequest}
             fetchType={false}
             images={images}
+            changeUrl={changeUrl}
           />
         }
       />
@@ -52,8 +61,11 @@ function UserInterface({
             localStoreStage={localStoreStage}
             postRequest={postRequest}
             setPosthRequest={setPosthRequest}
+            setPostCatRequest={setPostCatRequest}
+            setNewsCatRequest={setNewsCatRequest}
             fetchType={true}
             images={images}
+            changeUrl={changeUrl}
           />
         }
       />
@@ -64,14 +76,60 @@ function UserInterface({
           <Category
             localStoreStage={localStoreStage}
             setPosthRequest={setPosthRequest}
+            postCatRequest={postCatRequest}
+            setPostCatRequest={setPostCatRequest}
+            setNewsCatRequest={setNewsCatRequest}
+            fetchType={false}
+            fetchCatNewsLoad={false}
             images={images}
+            changeUrl={changeUrl}
+          />
+        }
+      />
+      <Route
+        exact
+        path="/news/category"
+        element={
+          <Category
+            localStoreStage={localStoreStage}
+            setPosthRequest={setPosthRequest}
+            postCatRequest={postCatRequest}
+            setPostCatRequest={setPostCatRequest}
+            setNewsCatRequest={setNewsCatRequest}
+            fetchType={false}
+            fetchCatNewsLoad={true}
+            images={images}
+            changeUrl={changeUrl}
+          />
+        }
+      />
+      <Route
+        exact
+        path="/news"
+        element={
+          <Category
+            localStoreStage={localStoreStage}
+            setPosthRequest={setPosthRequest}
+            postCatRequest={postCatRequest}
+            setPostCatRequest={setPostCatRequest}
+            setNewsCatRequest={setNewsCatRequest}
+            fetchType={true}
+            fetchCatNewsLoad={false}
+            images={images}
+            changeUrl={changeUrl}
           />
         }
       />
       <Route
         exact
         path="/contacts"
-        element={<Contacts localStoreStage={localStoreStage} images={images} />}
+        element={
+          <Contacts
+            localStoreStage={localStoreStage}
+            images={images}
+            changeUrl={changeUrl}
+          />
+        }
       />
       <Route
         exact
@@ -82,13 +140,21 @@ function UserInterface({
             images={images}
             searchRequest={searchRequest}
             setPosthRequest={setPosthRequest}
+            setPostCatRequest={setPostCatRequest}
+            changeUrl={changeUrl}
           />
         }
       />
       <Route
         exact
         path="/*"
-        element={<FailPage localStoreStage={localStoreStage} images={images} />}
+        element={
+          <FailPage
+            localStoreStage={localStoreStage}
+            images={images}
+            changeUrl={changeUrl}
+          />
+        }
       />
     </Routes>
   );

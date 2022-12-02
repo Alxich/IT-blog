@@ -14,6 +14,13 @@ const postsData = (state = initialState, action) => {
         isLoaded: true,
       };
 
+    case "FETCH_CATEGORY_POSTS":
+      return {
+        ...state,
+        posts: action.payload,
+        isLoaded: true,
+      };
+
     case "FETCH_POST":
       return {
         ...state,

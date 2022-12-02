@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function FailPage({ images, localStoreStage }) {
+function FailPage({ images, localStoreStage, changeUrl }) {
   const ksenchik = images.failPage;
 
   const { title, button } = localStoreStage.texts.failPage;
+
+  React.useEffect(() => {
+    changeUrl("Oops wrong page");
+  }, [changeUrl]);
 
   return (
     <div id="failpage" className="container flex-center full-width">

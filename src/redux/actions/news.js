@@ -42,6 +42,27 @@ export const fetchRelatedNews = (category, id) => (dispatch) => {
     });
 };
 
+export const fetchCatNews = (category) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_NEWS",
+    payload: false,
+  });
+
+  axios
+    .get(`/news?category=${category}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setCatNews(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const fetchNews = (count) => async (dispatch) => {
   dispatch({
     type: "SET_LOADED_NEWS",
@@ -58,7 +79,7 @@ export const fetchNews = (count) => async (dispatch) => {
             "Access-Control-Allow-Origin": "*",
           },
         })
-        .then(async ({ data }) => await dispatch(setNews(data)))
+        .then(async ({ data }) => await dispatch(setAllNews(data)))
         .catch((error) => {
           console.log(error);
         })
@@ -127,6 +148,11 @@ export const setNews = (data) => ({
   payload: data,
 });
 
+export const setAllNews = (data) => ({
+  type: "FETCH_ALL_NEWS",
+  payload: data,
+});
+
 export const setNewOne = (data) => ({
   type: "FETCH_NEWONE",
   payload: data,
@@ -134,5 +160,10 @@ export const setNewOne = (data) => ({
 
 export const setRelatedNews = (data) => ({
   type: "FETCH_RELATED_NEWS",
+  payload: data,
+});
+
+export const setCatNews = (data) => ({
+  type: "FETCH_CATEGORY_NEWS",
   payload: data,
 });
