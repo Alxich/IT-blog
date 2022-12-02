@@ -34,15 +34,19 @@ function Post({
     return fullWidth ? (
       <>
         <div className="short-info">
-          <Link
-            to={type ? "/news/category" : "/category"}
-            className="category"
-            onClick={() =>
-              type ? setNewsCatRequest(category) : setPostCatRequest(category)
-            }
-          >
-            <p>{category && category}</p>
-          </Link>
+          {type !== true ? (
+            <Link
+              to={type ? "/news/category" : "/category"}
+              className="category"
+              onClick={() => type !== true && setPostCatRequest(category)}
+            >
+              <p>{category && category}</p>
+            </Link>
+          ) : (
+            <div className="category">
+              <p>{category && category}</p>
+            </div>
+          )}
           <div className="date">
             <p>{data && data}</p>
           </div>

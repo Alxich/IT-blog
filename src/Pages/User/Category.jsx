@@ -18,8 +18,8 @@ function Category({
   fetchType,
 }) {
   const dispatch = useDispatch();
-  const localPosts = useSelector(({ postsData }) => postsData.posts);
-  const localNews = useSelector(({ newsData }) => newsData.news);
+  const localPosts = useSelector(({ postsData }) => postsData.searchResult);
+  const localNews = useSelector(({ newsData }) => newsData.searchResult);
 
   const loadTurnOf = () => {
     setIsLoaded(false);
@@ -39,18 +39,43 @@ function Category({
         : "IT-blog: Latest News",
       ""
     );
-  }, [changeUrl, dispatch, fetchType, newsCatRequest, postCatRequest]);
+  }, [
+    changeUrl,
+    dispatch,
+    fetchCatNewsLoad,
+    fetchType,
+    newsCatRequest,
+    postCatRequest,
+  ]);
 
   const [isLoaded, setIsLoaded] = React.useState(false);
   const loadedTarget = useSelector(({ postsData }) => postsData.isLoaded);
   const loadedNewsTarget = useSelector(({ newsData }) => newsData.isLoaded);
 
+  // fetctype true == news or false == posts or fetchCatNewsLoad true == news or false == posts
+
   React.useEffect(() => {
     if (isLoaded !== true) {
       setTimeout(() => {
-        fetchCatNewsLoad !== true
-          ? setIsLoaded(fetchType !== true ? loadedTarget : loadedNewsTarget)
-          : setIsLoaded(loadedNewsTarget);
+        setIsLoaded(
+          fetchType !== true
+            ? fetchCatNewsLoad !== true
+              ? loadedTarget
+                ? localPosts.length > 0
+                  ? true
+                  : false
+                : false
+              : loadedNewsTarget
+              ? localNews.length > 0
+                ? true
+                : false
+              : false
+            : loadedTarget
+            ? localPosts.length > 0
+              ? true
+              : false
+            : false
+        );
       }, 1500);
     }
   }, [

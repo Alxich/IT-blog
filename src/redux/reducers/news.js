@@ -3,6 +3,7 @@ const initialState = {
   newOne: {},
   newsId: [],
   related: [],
+  searchResult: [],
   isLoaded: false,
 };
 
@@ -25,7 +26,7 @@ const newsData = (state = initialState, action) => {
     case "FETCH_CATEGORY_NEWS":
       return {
         ...state,
-        news: action.payload,
+        searchResult: action.payload,
         isLoaded: true,
       };
 

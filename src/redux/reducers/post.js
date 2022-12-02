@@ -2,6 +2,7 @@ const initialState = {
   posts: [],
   post: {},
   related: [],
+  searchResult: [],
   isLoaded: false,
 };
 
@@ -17,7 +18,7 @@ const postsData = (state = initialState, action) => {
     case "FETCH_CATEGORY_POSTS":
       return {
         ...state,
-        posts: action.payload,
+        searchResult: action.payload,
         isLoaded: true,
       };
 

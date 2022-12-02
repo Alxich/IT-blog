@@ -17,6 +17,7 @@ function UserInterface({
   postRequest,
   setPosthRequest,
   setNewsCatRequest,
+  newsCatRequest,
   changeUrl,
   setPostCatRequest,
 }) {
@@ -96,6 +97,7 @@ function UserInterface({
             postCatRequest={postCatRequest}
             setPostCatRequest={setPostCatRequest}
             setNewsCatRequest={setNewsCatRequest}
+            newsCatRequest={newsCatRequest}
             fetchType={false}
             fetchCatNewsLoad={true}
             images={images}
