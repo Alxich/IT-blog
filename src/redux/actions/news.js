@@ -23,7 +23,7 @@ export const fetchNewOne = (id) => (dispatch) => {
 
 export const fetchRelatedNews = (category, id) => (dispatch) => {
   dispatch({
-    type: "SET_LOADED_POST",
+    type: "SET_LOADED_NEWS",
     payload: false,
   });
 
