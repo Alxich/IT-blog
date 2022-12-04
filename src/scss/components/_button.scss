@@ -45,6 +45,12 @@
       background-color: $purple-hover;
     }
 
+    
+  &.invalid {
+    background-color: $error;
+    color: $white;
+  }
+
     a {
       display: flex;
       justify-content: center;
