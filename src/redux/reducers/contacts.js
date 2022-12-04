@@ -2,7 +2,7 @@ const initialState = {
   sendStatus: null,
 };
 
-export const contacts = (state = initialState, action) => {
+const contacts = (state = initialState, action) => {
   switch (action.type) {
     case "SEND_MESSAGE":
       return {
@@ -20,3 +20,5 @@ export const contacts = (state = initialState, action) => {
       return state;
   }
 };
+
+export default contacts;

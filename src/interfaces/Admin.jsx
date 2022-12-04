@@ -71,7 +71,7 @@ function AdminInterface({ localStoreStage }) {
           referrerPolicy="no-referrer"
         />
       </div>
-      <Login images={images} />
+      <Login images={images} localStoreStage={localStoreStage} />
     </div>
   );
 }
