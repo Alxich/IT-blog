@@ -1,7 +1,9 @@
 const initialState = {
   session: "",
+  id: "",
   name: "",
   password: "",
+  avatar: "",
   isLoaded: false,
   isValid: null,
   isAuthorized: false,
@@ -12,9 +14,11 @@ const admin = (state = initialState, action) => {
     case "ADMIN_LOGIN":
       return {
         ...state,
+        id: action.payload.id,
         name: action.payload.login,
         password: action.payload.password,
         session: action.payload.session,
+        avatar: action.payload.avatar,
         isLoaded: true,
         isAuthorized: true,
         isValid: true,
@@ -22,6 +26,7 @@ const admin = (state = initialState, action) => {
 
     case "ADMIN_LOGOUT":
       const localSessionStorage = {
+        id: "",
         login: "",
         session: "",
       };
@@ -33,9 +38,11 @@ const admin = (state = initialState, action) => {
 
       return {
         ...state,
+        id: "",
         name: "",
         password: "",
         session: "",
+        avatar: "",
         isLoaded: false,
         isAuthorized: false,
         isValid: false,

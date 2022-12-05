@@ -1,14 +1,15 @@
 import React from "react";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAdminLogout } from "../redux/actions/admin";
 
 function AdminBar({ openBar, localStoreStage }) {
   const dispatch = useDispatch();
   const navigation = localStoreStage.navigation.admin;
-  const adminLogo = localStoreStage.images.userLogo;
   const [adminLogoutSession, setAdminLogoutSession] = React.useState(false);
+
+  const adminLogo = useSelector(({ admin }) => admin.avatar);
 
   React.useEffect(() => {
     adminLogoutSession === true && dispatch(setAdminLogout());

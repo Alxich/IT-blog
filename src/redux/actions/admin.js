@@ -40,6 +40,7 @@ export const fetchAdmin =
               id: dataLocal.id,
               login: dataLocal.login,
               password: dataLocal.password,
+              avatar: dataLocal.avatar ? dataLocal.avatar : "",
               session: dataLocal.session,
             })
           );
@@ -51,7 +52,7 @@ export const fetchAdmin =
   };
 
 export const setupAdminSession =
-  ({ id, session, login, password, type }) =>
+  ({ id, session, login, password, avatar, type }) =>
   (dispatch) => {
     dispatch({
       type: "SET_ADMIN_LOADED",
@@ -62,9 +63,28 @@ export const setupAdminSession =
       id: id,
       login: login,
       password: password,
+      avatar: avatar ? avatar : "",
       session: session,
     });
   };
+
+export const setupAdminSettings = (dataLocal) => (dispatch) => {
+  const session = uuidv4();
+
+  dispatch({
+    type: "SET_ADMIN_LOADED",
+    payload: session,
+  });
+
+  axios.put(`/users/${dataLocal.id}`, {
+    type: dataLocal.type,
+    id: dataLocal.id,
+    login: dataLocal.login,
+    password: dataLocal.password,
+    avatar: dataLocal.avatar ? dataLocal.avatar : "",
+    session: dataLocal.session,
+  });
+};
 
 export const setAdminLogin = (data) => ({
   type: "ADMIN_LOGIN",
