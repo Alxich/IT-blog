@@ -1,8 +1,8 @@
 import React from "react";
 
-function AccountSettings({ images }) {
+function AccountSettings({ images, adminName }) {
   const binIcon = images.icons.bin;
-  
+
   return (
     <>
       <div className="title main-title">
@@ -13,20 +13,20 @@ function AccountSettings({ images }) {
           <div className="title">
             <h3>Change your name</h3>
           </div>
-          <input type="text" placeholder="Current name: Administator" />
+          <input type="text" placeholder={`Current name: ${adminName}`} />
         </div>
         <div className="item">
           <div className="title">
             <h3>Change your avatar</h3>
           </div>
-          <input type="file" placeholder="Please choose new avatar" />
+          <input type="text" placeholder="Please choose new avatar" />
         </div>
         <div className="item">
           <div className="title">
             <h3>Change your password</h3>
           </div>
-          <input type="text" placeholder="Your old paswword" />
-          <input type="text" placeholder="Write new password" />
+          <input type="password" placeholder="Your old paswword" />
+          <input type="password" placeholder="Write new password" />
         </div>
         <div className="item">
           <div className="title">
@@ -34,7 +34,11 @@ function AccountSettings({ images }) {
           </div>
           <button className="button delete">
             <span className="text">Delete my account</span>
-            <img src={binIcon} alt="Oh no you will delete this acc" referrerPolicy="no-referrer"/>
+            <img
+              src={binIcon}
+              alt="Oh no you will delete this acc"
+              referrerPolicy="no-referrer"
+            />
           </button>
         </div>
       </form>

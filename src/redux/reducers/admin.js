@@ -10,7 +10,6 @@ const initialState = {
 const admin = (state = initialState, action) => {
   switch (action.type) {
     case "ADMIN_LOGIN":
-      console.log(action.payload);
       return {
         ...state,
         name: action.payload.login,
@@ -22,6 +21,16 @@ const admin = (state = initialState, action) => {
       };
 
     case "ADMIN_LOGOUT":
+      const localSessionStorage = {
+        login: "",
+        session: "",
+      };
+
+      sessionStorage.setItem(
+        "adminLoginInfo",
+        JSON.stringify(localSessionStorage)
+      );
+
       return {
         ...state,
         name: "",

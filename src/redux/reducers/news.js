@@ -50,6 +50,12 @@ const newsData = (state = initialState, action) => {
         isLoaded: action.payload,
       };
 
+      case "SET_UPLOAD_NEWS":
+        return {
+          ...state,
+          isLoaded: true,
+        };
+
     default:
       return state;
   }

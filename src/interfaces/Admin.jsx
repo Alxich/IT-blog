@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   AddPost,
@@ -11,7 +12,16 @@ import {
 import { AdminBar } from "../components";
 import FailPage from "../Pages/FailPage";
 
-function AdminInterface({ localStoreStage }) {
+import { fetchAdminPost } from "../redux/actions/post";
+import { fetchAdminNews } from "../redux/actions/news";
+
+function AdminInterface({
+  localStoreStage,
+  setPosthRequest,
+  setPostCatRequest,
+  setNewsCatRequest,
+}) {
+  const dispatch = useDispatch();
   const [openBar, setOpenBar] = React.useState(false);
   // eslint-disable-next-line no-unused-vars
   const [isAdmin, setIsAdmin] = React.useState(false);
@@ -22,6 +32,27 @@ function AdminInterface({ localStoreStage }) {
   const handleOpenBar = (openBar) => {
     openBar ? setOpenBar(false) : setOpenBar(true);
   };
+
+  const [homePosts, setHomePosts] = React.useState([]);
+  const [homeNews, setHomeNews] = React.useState([]);
+  const loginProceed = useSelector(({ admin }) => admin.isAuthorized);
+  const adminName = useSelector(({ admin }) => admin.name);
+  const postsData = useSelector(({ postsData }) => postsData.posts);
+  const newsData = useSelector(({ newsData }) => newsData.news);
+
+  React.useEffect(() => {
+    setIsAdmin(loginProceed);
+
+    if (loginProceed === true) {
+      dispatch(fetchAdminPost(adminName));
+      dispatch(fetchAdminNews(adminName));
+    }
+  }, [adminName, dispatch, loginProceed, setIsAdmin]);
+
+  React.useEffect(() => {
+    postsData.length > 0 && setHomePosts(postsData.slice(0, 3));
+    newsData.length > 0 && setHomeNews(newsData.slice(0, 3));
+  }, [newsData, postsData]);
 
   return isAdmin === true ? (
     <div className="container page-height flex-row flex-stretch flex-space relative">
@@ -35,22 +66,68 @@ function AdminInterface({ localStoreStage }) {
           />
         </div>
         <Routes>
-          <Route exact path="/" element={<Home images={images} />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <Home
+                images={images}
+                homePosts={homePosts}
+                homeNews={homeNews}
+                setPosthRequest={setPosthRequest}
+                setPostCatRequest={setPostCatRequest}
+                setNewsCatRequest={setNewsCatRequest}
+              />
+            }
+          />
           <Route
             exact
             path="/newpost"
-            element={<AddPost images={images} />}
+            element={
+              <AddPost images={images} adminName={adminName} type={false} />
+            }
           />{" "}
           <Route
             exact
             path="/newnews"
-            element={<AddPost type="news" images={images} />}
+            element={
+              <AddPost type={true} images={images} adminName={adminName} />
+            }
           />
-          <Route exact path="/posts" element={<AllPosts images={images} />} />
+          <Route
+            exact
+            path="/posts"
+            element={
+              <AllPosts
+                images={images}
+                setPosthRequest={setPosthRequest}
+                setPostCatRequest={setPostCatRequest}
+                setNewsCatRequest={setNewsCatRequest}
+                localStoreStage={localStoreStage}
+                postsData={postsData}
+                type={false}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/news"
+            element={
+              <AllPosts
+                images={images}
+                setPosthRequest={setPosthRequest}
+                setPostCatRequest={setPostCatRequest}
+                setNewsCatRequest={setNewsCatRequest}
+                localStoreStage={localStoreStage}
+                newsData={newsData}
+                type={true}
+              />
+            }
+          />
           <Route
             exact
             path="/settings"
-            element={<AccountSettings images={images} />}
+            element={<AccountSettings images={images} adminName={adminName} />}
           />
           <Route
             exact

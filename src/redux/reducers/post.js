@@ -42,6 +42,12 @@ const postsData = (state = initialState, action) => {
         isLoaded: action.payload,
       };
 
+    case "SET_UPLOAD_POST":
+      return {
+        ...state,
+        isLoaded: true,
+      };
+
     default:
       return state;
   }

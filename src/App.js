@@ -99,6 +99,9 @@ function App() {
                 element={
                   <AdminInterface
                     localStoreStage={localStoreStage}
+                    setPosthRequest={setPosthRequest}
+                    setPostCatRequest={setPostCatRequest}
+                    setNewsCatRequest={setNewsCatRequest}
                     changeUrl={changeUrl}
                   />
                 }
@@ -112,9 +115,9 @@ function App() {
                     searchRequest={searchRequest}
                     postCatRequest={postCatRequest}
                     postRequest={postRequest}
+                    newsCatRequest={newsCatRequest}
                     setPosthRequest={setPosthRequest}
                     setPostCatRequest={setPostCatRequest}
-                    newsCatRequest={newsCatRequest}
                     setNewsCatRequest={setNewsCatRequest}
                     changeUrl={changeUrl}
                   />

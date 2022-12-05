@@ -1,4 +1,5 @@
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export const fetchNewOne = (id) => (dispatch) => {
   dispatch({
@@ -58,6 +59,67 @@ export const fetchCatNews = (category) => (dispatch) => {
       },
     })
     .then(({ data }) => dispatch(setCatNews(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const fetchAdminNews = (author) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_NEWS",
+    payload: false,
+  });
+
+  axios
+    .get(`/news?author=${author}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Path: "/",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then(({ data }) => dispatch(setNews(data)))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const postAdminNews = (data) => (dispatch) => {
+  dispatch({
+    type: "SET_LOADED_NEWS",
+    payload: false,
+  });
+
+  const mounthToName = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let todayDate = new Date();
+  const dd = String(todayDate.getDate()).padStart(2, "0");
+  const mm = String(todayDate.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const yyyy = todayDate.getFullYear();
+
+  todayDate = dd + " " + mounthToName[mm - 1] + " " + yyyy;
+
+  axios
+    .post(`/news`, {
+      id: uuidv4(),
+      date: todayDate,
+      ...data,
+    })
+    .then(({ response }) => dispatch(setUploadNews(true)))
     .catch((error) => {
       console.log(error);
     });
@@ -167,3 +229,9 @@ export const setCatNews = (data) => ({
   type: "FETCH_CATEGORY_NEWS",
   payload: data,
 });
+
+export const setUploadNews = (data) => ({
+  type: "SET_UPLOAD_NEWS",
+  payload: data,
+});
+

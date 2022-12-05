@@ -1,10 +1,19 @@
-import classNames from "classnames";
 import React from "react";
+import classNames from "classnames";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAdminLogout } from "../redux/actions/admin";
 
 function AdminBar({ openBar, localStoreStage }) {
+  const dispatch = useDispatch();
   const navigation = localStoreStage.navigation.admin;
   const adminLogo = localStoreStage.images.userLogo;
+  const [adminLogoutSession, setAdminLogoutSession] = React.useState(false);
+
+  React.useEffect(() => {
+    adminLogoutSession === true && dispatch(setAdminLogout());
+    setAdminLogoutSession(false);
+  }, [adminLogoutSession, dispatch]);
 
   return (
     <div id="admin-bar" className={classNames({ active: openBar })}>
@@ -29,7 +38,7 @@ function AdminBar({ openBar, localStoreStage }) {
             </li>
           );
         })}
-        <li>Logout</li>
+        <li onClick={() => setAdminLogoutSession(true)}>Logout</li>
       </ul>
     </div>
   );

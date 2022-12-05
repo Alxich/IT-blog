@@ -77,7 +77,7 @@ function Contacts({ images, localStoreStage, changeUrl }) {
           ...localDataCopy,
           name: value,
         });
-        localDataCopy.name.length < 4 || localDataCopy.name.length === 0
+        localDataCopy.name.length < 4 || localDataCopy.name.length <= 0
           ? setLocalDataError({
               ...localDataErrorCopy,
               name: true,
@@ -94,7 +94,7 @@ function Contacts({ images, localStoreStage, changeUrl }) {
           ...localDataCopy,
           message: value,
         });
-        localDataCopy.message.length < 4 || localDataCopy.message.length === 0
+        localDataCopy.message.length < 4 || localDataCopy.message.length <= 0
           ? setLocalDataError({
               ...localDataErrorCopy,
               message: true,

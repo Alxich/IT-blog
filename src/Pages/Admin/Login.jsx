@@ -61,7 +61,7 @@ function Login({ images, localStoreStage }) {
           ...localDataCopy,
           name: value,
         });
-        localDataCopy.name.length < 4 || localDataCopy.name.length === 0
+        localDataCopy.name.length < 4 || localDataCopy.name.length <= 0
           ? setLocalDataError({
               ...localDataErrorCopy,
               name: true,
@@ -78,7 +78,7 @@ function Login({ images, localStoreStage }) {
           ...localDataCopy,
           password: value,
         });
-        localDataCopy.password.length < 8 || localDataCopy.password.length === 0
+        localDataCopy.password.length < 8 || localDataCopy.password.length <= 0
           ? setLocalDataError({
               ...localDataErrorCopy,
               password: true,
@@ -124,7 +124,7 @@ function Login({ images, localStoreStage }) {
           className={classNames({ invalid: localDataError.name })}
         />
         <input
-          type="text"
+          type="password"
           name="password"
           value={localData.password}
           onChange={(e) => handlerChangeValue(e)}
