@@ -14,15 +14,6 @@ const initialState = {
 const admin = (state = initialState, action) => {
   switch (action.type) {
     case "ADMIN_LOGIN":
-      const relatedNewsArr = [
-        ...state.relatedNews,
-        ...action.payload.relatedNews,
-      ];
-      const relatedPostArr = [
-        ...state.relatedPost,
-        ...action.payload.relatedPost,
-      ];
-
       return {
         ...state,
         id: action.payload.id,
@@ -30,8 +21,6 @@ const admin = (state = initialState, action) => {
         password: action.payload.password,
         session: action.payload.session,
         avatar: action.payload.avatar,
-        relatedNews: relatedNewsArr,
-        relatedPost: relatedPostArr,
         isLoaded: true,
         isAuthorized: true,
         isValid: true,
@@ -61,6 +50,20 @@ const admin = (state = initialState, action) => {
         isLoaded: false,
         isAuthorized: false,
         isValid: false,
+      };
+
+    case "ADMIN_RELATED":
+      const relatedPostArr = action.payload.relatedPost.map((item) => {
+        return item;
+      });
+      const relatedNewsArr = action.payload.relatedNews.map((item) => {
+        return item;
+      });
+
+      return {
+        ...state,
+        relatedPost: relatedPostArr,
+        relatedNews: relatedNewsArr,
       };
 
     case "SET_ADMIN_VALID":

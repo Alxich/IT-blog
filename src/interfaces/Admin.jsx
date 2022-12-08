@@ -14,6 +14,7 @@ import FailPage from "../Pages/FailPage";
 
 import { fetchAdminPost } from "../redux/actions/post";
 import { fetchAdminNews } from "../redux/actions/news";
+import { fetchAdminRelated } from "../redux/actions/admin";
 
 function AdminInterface({
   localStoreStage,
@@ -34,6 +35,7 @@ function AdminInterface({
 
   const [homePosts, setHomePosts] = React.useState([]);
   const [homeNews, setHomeNews] = React.useState([]);
+  const [idsIsFetched, setIdsIsFetched] = React.useState(false);
   const loginProceed = useSelector(({ admin }) => admin.isAuthorized);
   const adminName = useSelector(({ admin }) => admin.name);
   const adminPosts = useSelector(({ admin }) => admin.relatedPost);
@@ -46,11 +48,19 @@ function AdminInterface({
     setIsAdmin(loginProceed);
 
     if (loginProceed === true) {
+      dispatch(fetchAdminRelated(adminName));
+      setIdsIsFetched(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, loginProceed]);
+
+  React.useEffect(() => {
+    if (loginProceed === true && idsIsFetched === true) {
       dispatch(fetchAdminPost(adminPosts));
       dispatch(fetchAdminNews(adminNews));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [adminName, dispatch, loginProceed, setIsAdmin]);
+  }, [adminNews, adminPosts, dispatch]);
 
   React.useEffect(() => {
     postsData.length > 0 && setHomePosts(postsData.slice(0, 3));

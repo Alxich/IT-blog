@@ -12,15 +12,9 @@ export const fetchAdmin =
       .get(`/users?login=${name}`)
       .then(({ data }) => {
         const serverPassword = data[0].password;
-        const relatedNewsArr = [...data[0].relatedNews];
-        const relatedPostArr = [...data[0].relatedPost];
-
-        console.log(JSON.stringify(relatedNewsArr));
 
         const dataLocal = {
           ...data[0],
-          relatedNews: [...relatedNewsArr],
-          relatedPost: [...relatedPostArr],
           session: uuidv4(),
         };
         const localSessionStorage = {
@@ -33,7 +27,7 @@ export const fetchAdmin =
         );
 
         serverPassword === password
-          ? dispatch(setAdminLogin({ ...dataLocal }))
+          ? dispatch(setAdminLogin(dataLocal))
           : dispatch(setAdminValid(false));
 
         serverPassword === password &&
@@ -56,6 +50,24 @@ export const fetchAdmin =
         dispatch(setAdminValid(false));
       });
   };
+
+export const fetchAdminRelated = (name) => (dispatch) => {
+  axios
+    .get(`/users?login=${name}`)
+    .then(({ data }) => {
+      dispatch(
+        setAdminRelated({
+          relatedPost: data[0].relatedPost,
+          relatedNews: data[0].relatedNews,
+        })
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(setAdminLogout());
+      dispatch(setAdminValid(false));
+    });
+};
 
 export const setupAdminSession =
   ({ id, session, login, password, avatar, type, relatedPost, relatedNews }) =>
@@ -99,6 +111,11 @@ export const setupAdminSettings = (dataLocal) => (dispatch) => {
 
 export const setAdminLogin = (data) => ({
   type: "ADMIN_LOGIN",
+  payload: data,
+});
+
+export const setAdminRelated = (data) => ({
+  type: "ADMIN_RELATED",
   payload: data,
 });
 
