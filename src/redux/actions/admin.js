@@ -1,4 +1,5 @@
 import axios from "axios";
+import store from "../store";
 import { v4 as uuidv4 } from "uuid";
 
 export const fetchAdmin =
@@ -61,6 +62,38 @@ export const fetchAdminRelated = (name) => (dispatch) => {
           relatedNews: data[0].relatedNews,
         })
       );
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(setAdminLogout());
+      dispatch(setAdminValid(false));
+    });
+};
+
+export const assignNewRelated = (postType, id) => (dispatch) => {
+  const dataLocal = store.getState().admin;
+
+  dispatch({
+    type: "SET_ADMIN_LOADED",
+    payload: dataLocal.session,
+  });
+
+  axios
+    .put(`/users/${dataLocal.id}`, {
+      type: dataLocal.type,
+      id: dataLocal.id,
+      login: dataLocal.login,
+      password: dataLocal.password,
+      relatedPost:
+        postType === "post"
+          ? [...dataLocal.relatedPost, id]
+          : dataLocal.relatedPost,
+      relatedNews:
+        postType === "news"
+          ? [...dataLocal.relatedNews, id]
+          : dataLocal.relatedNews,
+      avatar: dataLocal.avatar ? dataLocal.avatar : "",
+      session: dataLocal.session,
     })
     .catch((error) => {
       console.log(error);

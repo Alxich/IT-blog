@@ -1,5 +1,4 @@
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 export const fetchNewOne = (id) => (dispatch) => {
   dispatch({
@@ -70,10 +69,12 @@ export const fetchAdminNews = (idArray) => (dispatch) => {
     payload: false,
   });
 
-  const arrayToShow = () => {
-    let questionIdGet = idArray.splice(1).join("&id=");
+  const idCopy = [...idArray];
 
-    return `?id=${idArray[0]}${questionIdGet && "&id=" + questionIdGet}`;
+  const arrayToShow = () => {
+    let questionIdGet = idCopy.splice(1).join("&id=");
+
+    return `?id=${idCopy[0]}${questionIdGet && "&id=" + questionIdGet}`;
   };
 
   const getIds = arrayToShow();
@@ -123,7 +124,6 @@ export const postAdminNews = (data) => (dispatch) => {
 
   axios
     .post(`/news`, {
-      id: uuidv4(),
       date: todayDate,
       ...data,
     })

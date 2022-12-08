@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAdminLogout } from "../redux/actions/admin";
 
-function AdminBar({ openBar, localStoreStage, setCurrentPage }) {
+function AdminBar({ openBar, localStoreStage, setCurrentPage, adminName }) {
   const dispatch = useDispatch();
   const navigation = localStoreStage.navigation.admin;
   const [adminLogoutSession, setAdminLogoutSession] = React.useState(false);
@@ -25,7 +25,7 @@ function AdminBar({ openBar, localStoreStage, setCurrentPage }) {
         </NavLink>
         <div className="title">
           <h3>
-            Hello, <br /> Administrator
+            Hello, <br /> {adminName}
           </h3>
         </div>
       </div>

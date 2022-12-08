@@ -2,19 +2,23 @@ import React from "react";
 import classNames from "classnames";
 import validator from "validator";
 import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
-import { postAdminPost } from "../../redux/actions/post";
-import { postAdminNews } from "../../redux/actions/news";
+import { fetchPost, postAdminPost } from "../../redux/actions/post";
+import { fetchNewOne, postAdminNews } from "../../redux/actions/news";
+import { assignNewRelated } from "../../redux/actions/admin";
 
-function AddPost({ type, images, adminName }) {
+function AddPost({ type, images, editPost }) {
   const dispatch = useDispatch();
   const isNews = type === true;
   const send = images.icons.send;
 
   const sendStatus = useSelector(({ postsData }) => postsData.isLoaded);
+  const post = useSelector(({ postsData }) => postsData.post);
+  const news = useSelector(({ newsData }) => newsData.newOne);
 
   const [localData, setLocalData] = React.useState({
-    author: adminName,
+    id: post.length > 0 ? post[0].id : uuidv4(),
     title: "",
     category: "",
     featuredImage: "",
@@ -22,8 +26,40 @@ function AddPost({ type, images, adminName }) {
     footerImage: "",
     textAbout: "",
   });
+
+  React.useEffect(() => {
+    editPost > -1 && type !== true && dispatch(fetchPost(editPost));
+    editPost > -1 && type === true && dispatch(fetchNewOne(editPost));
+  }, [dispatch, editPost, type]);
+
+  React.useEffect(() => {
+    setLocalData(
+      type !== true
+        ? {
+            id: post.length >= 0 ? post[0].id : uuidv4(),
+            title: post.length >= 0 ? post[0].title : "",
+            category: post.length >= 0 ? post[0].category : "",
+            featuredImage: post.length >= 0 ? post[0].imageSrc : "",
+            bannerImage: post.length >= 0 ? post[0].imageSrc : "",
+            footerImage: post.length >= 0 ? post[0].imageSrc : "",
+            textAbout: post.length >= 0 ? post[0].text : "",
+          }
+        : {
+            id: news.length >= 0 ? news[0].id : uuidv4(),
+            title: news.length >= 0 ? news[0].title : "",
+            category: news.length >= 0 ? news[0].category : "",
+            featuredImage: news.length >= 0 ? news[0].imageSrc : "",
+            bannerImage: news.length >= 0 ? news[0].imageSrc : "",
+            footerImage: news.length >= 0 ? news[0].imageSrc : "",
+            textAbout: news.length >= 0 ? news[0].text : "",
+          }
+    );
+  }, [news, post, type]);
+
+  console.log(localData);
+
   const [localDataError, setLocalDataError] = React.useState({
-    author: adminName,
+    id: uuidv4(),
     title: false,
     category: false,
     featuredImage: false,
@@ -52,7 +88,7 @@ function AddPost({ type, images, adminName }) {
 
   const clearLocalData = () => {
     setLocalData({
-      author: adminName,
+      id: uuidv4(),
       title: "",
       category: "",
       featuredImage: "",
@@ -67,6 +103,11 @@ function AddPost({ type, images, adminName }) {
       type !== true
         ? dispatch(postAdminPost(localData))
         : dispatch(postAdminNews(localData));
+
+      type !== true
+        ? dispatch(assignNewRelated("post", localData.id))
+        : dispatch(assignNewRelated("news", localData.id));
+
       setSendPostStatus(false);
     };
 

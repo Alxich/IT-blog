@@ -2,10 +2,10 @@
   "users": [
     {
       "id": "ee0e9e9e9e",
-      "login": "administrator",
-      "password": "adminlovedogs",
+      "login": "admin",
+      "password": "admin123",
       "avatar": "https://www.nicepng.com/png/detail/162-1626559_photo-one-punch-man-steam-avatar.png",
-      "session": "aa8b1d78-79cf-4c8d-9b66-6a41fa4d78e5",
+      "session": "49feab06-6495-454a-bfa4-8f9423b77781",
       "relatedPost": [
         0,
         1,
@@ -23,7 +23,8 @@
         0,
         1,
         2,
-        3
+        3,
+        "a80ac3c9-da4a-4ec0-babb-9603a99943f9"
       ]
     }
   ],
@@ -345,15 +346,15 @@
       ]
     },
     {
-      "id": "9a590ddb-aec3-4544-9019-10562c809b98",
-      "date": "05 Dec 2022",
-      "author": "administator",
-      "title": "todayDate maybe",
-      "category": "Testiscss",
-      "featuredImage": "https://static01.nyt.com/images/2021/04/30/multimedia/30xp-meme/29xp-meme-mediumSquareAt3X-v5.jpg",
-      "bannerImage": "https://static01.nyt.com/images/2021/04/30/multimedia/30xp-meme/29xp-meme-mediumSquareAt3X-v5.jpg",
-      "footerImage": "https://static01.nyt.com/images/2021/04/30/multimedia/30xp-meme/29xp-meme-mediumSquareAt3X-v5.jpg",
-      "textAbout": "todayDatd"
+      "id": "0a6c0565-27a9-40e9-bff5-2899e1ab90ff",
+      "date": "08 Dec 2022",
+      "author": "administratorka",
+      "title": "adminnnn",
+      "category": "adminnn",
+      "featuredImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      "bannerImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      "footerImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      "textAbout": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpgd"
     }
   ],
   "newsIds": [
@@ -414,6 +415,16 @@
       "bannerImage": "https://static01.nyt.com/images/2021/04/30/multimedia/30xp-meme/29xp-meme-mediumSquareAt3X-v5.jpg",
       "footerImage": "https://static01.nyt.com/images/2021/04/30/multimedia/30xp-meme/29xp-meme-mediumSquareAt3X-v5.jpg",
       "textAbout": "https://static01.nyt.com/images/2021/04/30/multimedia/30xp-meme/29xp-meme-mediumSquareAt3X-v5.jpg vot suka"
+    },
+    {
+      "date": "08 Dec 2022",
+      "id": "a80ac3c9-da4a-4ec0-babb-9603a99943f9",
+      "title": "administratorka",
+      "category": "administratorka",
+      "featuredImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      "bannerImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      "footerImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      "textAbout": "administratorka"
     }
   ]
 }

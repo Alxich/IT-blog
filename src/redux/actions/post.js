@@ -91,10 +91,12 @@ export const fetchAdminPost = (idArray) => (dispatch) => {
     payload: false,
   });
 
-  const arrayToShow = () => {
-    let questionIdGet = idArray.splice(1).join("&id=");
+  const idCopy = [...idArray];
 
-    return `?id=${idArray[0]}${questionIdGet && "&id=" + questionIdGet}`;
+  const arrayToShow = () => {
+    let questionIdGet = idCopy.splice(1).join("&id=");
+
+    return `?id=${idCopy[0]}${questionIdGet && "&id=" + questionIdGet}`;
   };
 
   const getIds = arrayToShow();

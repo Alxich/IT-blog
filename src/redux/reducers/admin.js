@@ -62,8 +62,8 @@ const admin = (state = initialState, action) => {
 
       return {
         ...state,
-        relatedPost: relatedPostArr,
-        relatedNews: relatedNewsArr,
+        relatedPost: Array.of(relatedPostArr)[0],
+        relatedNews: Array.of(relatedNewsArr)[0],
       };
 
     case "SET_ADMIN_VALID":

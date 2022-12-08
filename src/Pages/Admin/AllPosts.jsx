@@ -12,6 +12,7 @@ function AllPosts({
   type,
   currentPage,
   setCurrentPage,
+  setEditPost,
 }) {
   const [recordsPerPage] = React.useState(3);
 
@@ -42,6 +43,7 @@ function AllPosts({
               setPostCatRequest={setPostCatRequest}
               setNewsCatRequest={setNewsCatRequest}
               type={type}
+              setEditPost={setEditPost}
               key={`${item}__${i}`}
             />
           );

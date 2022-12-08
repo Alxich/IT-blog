@@ -35,6 +35,7 @@ function AdminInterface({
 
   const [homePosts, setHomePosts] = React.useState([]);
   const [homeNews, setHomeNews] = React.useState([]);
+  const [editPost, setEditPost] = React.useState(-1);
   const [idsIsFetched, setIdsIsFetched] = React.useState(false);
   const loginProceed = useSelector(({ admin }) => admin.isAuthorized);
   const adminName = useSelector(({ admin }) => admin.name);
@@ -73,6 +74,7 @@ function AdminInterface({
         openBar={openBar}
         localStoreStage={localStoreStage}
         setCurrentPage={setCurrentPage}
+        adminName={adminName}
       />
       <div id="admin-content">
         <div className="open-bar" onClick={() => handleOpenBar(openBar)}>
@@ -94,6 +96,7 @@ function AdminInterface({
                 setPosthRequest={setPosthRequest}
                 setPostCatRequest={setPostCatRequest}
                 setNewsCatRequest={setNewsCatRequest}
+                setEditPost={setEditPost}
               />
             }
           />
@@ -103,12 +106,36 @@ function AdminInterface({
             element={
               <AddPost images={images} adminName={adminName} type={false} />
             }
-          />{" "}
+          />
           <Route
             exact
             path="/newnews"
             element={
               <AddPost type={true} images={images} adminName={adminName} />
+            }
+          />
+          <Route
+            exact
+            path="/editpost"
+            element={
+              <AddPost
+                type={false}
+                images={images}
+                adminName={adminName}
+                editPost={editPost}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/editnews"
+            element={
+              <AddPost
+                type={true}
+                images={images}
+                adminName={adminName}
+                editPost={editPost}
+              />
             }
           />
           <Route
@@ -124,6 +151,7 @@ function AdminInterface({
                 postsData={postsData}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
+                setEditPost={setEditPost}
                 type={false}
               />
             }
@@ -141,6 +169,7 @@ function AdminInterface({
                 newsData={newsData}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
+                setEditPost={setEditPost}
                 type={true}
               />
             }

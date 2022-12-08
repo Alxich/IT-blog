@@ -8,6 +8,7 @@ function Home({
   setPosthRequest,
   setPostCatRequest,
   setNewsCatRequest,
+  setEditPost,
 }) {
   return (
     <>
@@ -32,6 +33,7 @@ function Home({
               setPostCatRequest={setPostCatRequest}
               setNewsCatRequest={setNewsCatRequest}
               type={false}
+              setEditPost={setEditPost}
               key={`${item}__${i}`}
             />
           );
@@ -55,6 +57,7 @@ function Home({
               setPostCatRequest={setPostCatRequest}
               setNewsCatRequest={setNewsCatRequest}
               type={true}
+              setEditPost={setEditPost}
               key={`${item}__${i}`}
             />
           );

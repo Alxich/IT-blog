@@ -28,6 +28,7 @@ function Post({
   setPostCatRequest,
   setNewsCatRequest,
   type,
+  setEditPost,
 }) {
   const gearIcon = images.icons.gear;
   const returnMeContent = () => {
@@ -58,7 +59,11 @@ function Post({
           {children && children}
         </Link>
         {edit && (
-          <div className="button edit">
+          <Link
+            to={type ? "/admin/editnews" : "/admin/editpost"}
+            className="button edit"
+            onClick={() => setEditPost(id)}
+          >
             <span className="text">Edit this post</span>
             {
               // eslint-disable-next-line jsx-a11y/img-redundant-alt
@@ -68,7 +73,7 @@ function Post({
                 referrerPolicy="no-referrer"
               />
             }
-          </div>
+          </Link>
         )}
       </>
     ) : twoItems ? (
