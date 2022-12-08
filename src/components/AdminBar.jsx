@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAdminLogout } from "../redux/actions/admin";
 
-function AdminBar({ openBar, localStoreStage }) {
+function AdminBar({ openBar, localStoreStage, setCurrentPage }) {
   const dispatch = useDispatch();
   const navigation = localStoreStage.navigation.admin;
   const [adminLogoutSession, setAdminLogoutSession] = React.useState(false);
@@ -32,7 +32,7 @@ function AdminBar({ openBar, localStoreStage }) {
       <ul className="navigation container flex-column flex-space width-auto">
         {navigation.map((item, i) => {
           return (
-            <li key={`${item.name}__${i}`}>
+            <li key={`${item.name}__${i}`} onClick={() => setCurrentPage(1)}>
               <NavLink activeclassname="active" to={item.link}>
                 {item.name}
               </NavLink>

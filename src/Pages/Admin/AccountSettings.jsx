@@ -15,6 +15,8 @@ function AccountSettings({ images, adminName }) {
   const oldPassword = useSelector(({ admin }) => admin.password);
   const oldLogin = useSelector(({ admin }) => admin.name);
   const accountSession = useSelector(({ admin }) => admin.session);
+  const relatedPost = useSelector(({ admin }) => admin.relatedPost);
+  const relatedNews = useSelector(({ admin }) => admin.relatedNews);
 
   const [localData, setLocalData] = React.useState({
     type: accountType,
@@ -24,6 +26,8 @@ function AccountSettings({ images, adminName }) {
     oldPassword: "",
     avatar: "",
     session: accountSession,
+    relatedPost: relatedPost,
+    relatedNews: relatedNews,
   });
   const [localDataError, setLocalDataError] = React.useState({
     type: accountType,
@@ -33,6 +37,8 @@ function AccountSettings({ images, adminName }) {
     oldPassword: false,
     avatar: false,
     session: accountSession,
+    relatedPost: relatedPost,
+    relatedNews: relatedNews,
   });
 
   const [sendPostStatus, setSendPostStatus] = React.useState(false);
@@ -55,6 +61,8 @@ function AccountSettings({ images, adminName }) {
       oldPassword: "",
       avatar: "",
       session: accountSession,
+      relatedPost: relatedPost,
+      relatedNews: relatedNews,
     });
   };
 

@@ -9,17 +9,20 @@ export const fetchAdmin =
       payload: false,
     });
     axios
-      .get(`/users?login=${name}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Path: "/",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      .get(`/users?login=${name}`)
       .then(({ data }) => {
         const serverPassword = data[0].password;
-        const dataLocal = { ...data[0], session: uuidv4() };
+        const relatedNewsArr = [...data[0].relatedNews];
+        const relatedPostArr = [...data[0].relatedPost];
+
+        console.log(JSON.stringify(relatedNewsArr));
+
+        const dataLocal = {
+          ...data[0],
+          relatedNews: [...relatedNewsArr],
+          relatedPost: [...relatedPostArr],
+          session: uuidv4(),
+        };
         const localSessionStorage = {
           login: dataLocal.login,
           session: dataLocal.session,
@@ -30,7 +33,7 @@ export const fetchAdmin =
         );
 
         serverPassword === password
-          ? dispatch(setAdminLogin(dataLocal))
+          ? dispatch(setAdminLogin({ ...dataLocal }))
           : dispatch(setAdminValid(false));
 
         serverPassword === password &&
@@ -42,22 +45,26 @@ export const fetchAdmin =
               password: dataLocal.password,
               avatar: dataLocal.avatar ? dataLocal.avatar : "",
               session: dataLocal.session,
+              relatedPost: [...dataLocal.relatedPost],
+              relatedNews: [...dataLocal.relatedNews],
             })
           );
       })
       .catch((error) => {
+        console.log(error);
         dispatch(setAdminLogout());
         dispatch(setAdminValid(false));
       });
   };
 
 export const setupAdminSession =
-  ({ id, session, login, password, avatar, type }) =>
+  ({ id, session, login, password, avatar, type, relatedPost, relatedNews }) =>
   (dispatch) => {
     dispatch({
       type: "SET_ADMIN_LOADED",
       payload: session,
     });
+
     axios.put(`/users/${id}`, {
       type: type,
       id: id,
@@ -65,6 +72,8 @@ export const setupAdminSession =
       password: password,
       avatar: avatar ? avatar : "",
       session: session,
+      relatedPost: relatedPost,
+      relatedNews: relatedNews,
     });
   };
 
@@ -81,6 +90,8 @@ export const setupAdminSettings = (dataLocal) => (dispatch) => {
     id: dataLocal.id,
     login: dataLocal.login,
     password: dataLocal.password,
+    relatedPost: dataLocal.relatedPost,
+    relatedNews: dataLocal.relatedNews,
     avatar: dataLocal.avatar ? dataLocal.avatar : "",
     session: dataLocal.session,
   });

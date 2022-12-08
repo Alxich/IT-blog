@@ -85,14 +85,22 @@ export const fetchCatPost = (category) => (dispatch) => {
     });
 };
 
-export const fetchAdminPost = (author) => (dispatch) => {
+export const fetchAdminPost = (idArray) => (dispatch) => {
   dispatch({
     type: "SET_LOADED_POST",
     payload: false,
   });
 
+  const arrayToShow = () => {
+    let questionIdGet = idArray.splice(1).join("&id=");
+
+    return `?id=${idArray[0]}${questionIdGet && "&id=" + questionIdGet}`;
+  };
+
+  const getIds = arrayToShow();
+
   axios
-    .get(`/posts?author=${author}`, {
+    .get(`/posts${getIds}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

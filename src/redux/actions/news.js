@@ -64,14 +64,22 @@ export const fetchCatNews = (category) => (dispatch) => {
     });
 };
 
-export const fetchAdminNews = (author) => (dispatch) => {
+export const fetchAdminNews = (idArray) => (dispatch) => {
   dispatch({
     type: "SET_LOADED_NEWS",
     payload: false,
   });
 
+  const arrayToShow = () => {
+    let questionIdGet = idArray.splice(1).join("&id=");
+
+    return `?id=${idArray[0]}${questionIdGet && "&id=" + questionIdGet}`;
+  };
+
+  const getIds = arrayToShow();
+
   axios
-    .get(`/news?author=${author}`, {
+    .get(`/news${getIds}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

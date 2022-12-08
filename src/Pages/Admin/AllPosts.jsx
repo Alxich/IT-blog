@@ -10,8 +10,9 @@ function AllPosts({
   setNewsCatRequest,
   localStoreStage,
   type,
+  currentPage,
+  setCurrentPage,
 }) {
-  const [currentPage, setCurrentPage] = React.useState(1);
   const [recordsPerPage] = React.useState(3);
 
   const localpost = type !== true ? postsData : newsData;

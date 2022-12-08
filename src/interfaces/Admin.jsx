@@ -23,7 +23,6 @@ function AdminInterface({
 }) {
   const dispatch = useDispatch();
   const [openBar, setOpenBar] = React.useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [isAdmin, setIsAdmin] = React.useState(false);
 
   const images = localStoreStage.images;
@@ -37,16 +36,20 @@ function AdminInterface({
   const [homeNews, setHomeNews] = React.useState([]);
   const loginProceed = useSelector(({ admin }) => admin.isAuthorized);
   const adminName = useSelector(({ admin }) => admin.name);
+  const adminPosts = useSelector(({ admin }) => admin.relatedPost);
+  const adminNews = useSelector(({ admin }) => admin.relatedNews);
   const postsData = useSelector(({ postsData }) => postsData.posts);
   const newsData = useSelector(({ newsData }) => newsData.news);
+  const [currentPage, setCurrentPage] = React.useState(1);
 
   React.useEffect(() => {
     setIsAdmin(loginProceed);
 
     if (loginProceed === true) {
-      dispatch(fetchAdminPost(adminName));
-      dispatch(fetchAdminNews(adminName));
+      dispatch(fetchAdminPost(adminPosts));
+      dispatch(fetchAdminNews(adminNews));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminName, dispatch, loginProceed, setIsAdmin]);
 
   React.useEffect(() => {
@@ -56,7 +59,11 @@ function AdminInterface({
 
   return isAdmin === true ? (
     <div className="container page-height flex-row flex-stretch flex-space relative">
-      <AdminBar openBar={openBar} localStoreStage={localStoreStage} />
+      <AdminBar
+        openBar={openBar}
+        localStoreStage={localStoreStage}
+        setCurrentPage={setCurrentPage}
+      />
       <div id="admin-content">
         <div className="open-bar" onClick={() => handleOpenBar(openBar)}>
           <img
@@ -105,6 +112,8 @@ function AdminInterface({
                 setNewsCatRequest={setNewsCatRequest}
                 localStoreStage={localStoreStage}
                 postsData={postsData}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
                 type={false}
               />
             }
@@ -120,6 +129,8 @@ function AdminInterface({
                 setNewsCatRequest={setNewsCatRequest}
                 localStoreStage={localStoreStage}
                 newsData={newsData}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
                 type={true}
               />
             }
