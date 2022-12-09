@@ -1,4 +1,5 @@
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export const fetchNewOne = (id) => (dispatch) => {
   dispatch({
@@ -94,7 +95,7 @@ export const fetchAdminNews = (idArray) => (dispatch) => {
     });
 };
 
-export const postAdminNews = (data) => (dispatch) => {
+export const postAdminNews = (data, localId) => (dispatch) => {
   dispatch({
     type: "SET_LOADED_NEWS",
     payload: false,
@@ -122,15 +123,27 @@ export const postAdminNews = (data) => (dispatch) => {
 
   todayDate = dd + " " + mounthToName[mm - 1] + " " + yyyy;
 
-  axios
-    .post(`/news`, {
-      date: todayDate,
-      ...data,
-    })
-    .then(({ response }) => dispatch(setUploadNews(true)))
-    .catch((error) => {
-      console.log(error);
-    });
+  data.id
+    ? axios
+        .put(`/news/${data.id}`, {
+          id: data.id ? data.id : uuidv4(),
+          data: todayDate,
+          ...data,
+        })
+        .then(({ response }) => dispatch(setUploadNews(true)))
+        .catch((error) => {
+          console.log(error);
+        })
+    : axios
+        .post(`/news`, {
+          id: localId,
+          data: todayDate,
+          ...data,
+        })
+        .then(({ response }) => dispatch(setUploadNews(true)))
+        .catch((error) => {
+          console.log(error);
+        });
 };
 
 export const fetchNews = (count) => async (dispatch) => {

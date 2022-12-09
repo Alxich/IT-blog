@@ -116,7 +116,7 @@ export const fetchAdminPost = (idArray) => (dispatch) => {
     });
 };
 
-export const postAdminPost = (data) => (dispatch) => {
+export const postAdminPost = (data, localId) => (dispatch) => {
   dispatch({
     type: "SET_LOADED_POST",
     payload: false,
@@ -144,16 +144,27 @@ export const postAdminPost = (data) => (dispatch) => {
 
   todayDate = dd + " " + mounthToName[mm - 1] + " " + yyyy;
 
-  axios
-    .post(`/posts`, {
-      id: uuidv4(),
-      date: todayDate,
-      ...data,
-    })
-    .then(({ response }) => dispatch(setUploadPost(true)))
-    .catch((error) => {
-      console.log(error);
-    });
+  data.id
+    ? axios
+        .put(`/posts/${data.id}`, {
+          id: data.id ? data.id : uuidv4(),
+          data: todayDate,
+          ...data,
+        })
+        .then(({ response }) => dispatch(setUploadPost(true)))
+        .catch((error) => {
+          console.log(error);
+        })
+    : axios
+        .post(`/posts`, {
+          id: localId,
+          data: todayDate,
+          ...data,
+        })
+        .then(({ response }) => dispatch(setUploadPost(true)))
+        .catch((error) => {
+          console.log(error);
+        });
 };
 
 export const fetchPosts = (count) => async (dispatch) => {

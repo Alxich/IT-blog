@@ -2,10 +2,7 @@
   "users": [
     {
       "id": "ee0e9e9e9e",
-      "login": "admin",
-      "password": "admin123",
-      "avatar": "https://www.nicepng.com/png/detail/162-1626559_photo-one-punch-man-steam-avatar.png",
-      "session": "49feab06-6495-454a-bfa4-8f9423b77781",
+      "password": "admin12345",
       "relatedPost": [
         0,
         1,
@@ -17,7 +14,16 @@
         7,
         8,
         9,
-        10
+        10,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        "073a8b7b-3c5e-4097-8647-b7acc3612c8d",
+        "83e499dd-733c-40c7-b583-677d97a73d37",
+        "4faf1e09-9efa-4958-999e-d1c9598a646a"
       ],
       "relatedNews": [
         0,
@@ -25,7 +31,9 @@
         2,
         3,
         "a80ac3c9-da4a-4ec0-babb-9603a99943f9"
-      ]
+      ],
+      "avatar": "https://www.nicepng.com/png/detail/162-1626559_photo-one-punch-man-steam-avatar.png",
+      "session": "1917dc21-7fee-4812-a7e7-7f5508a6a0d4"
     }
   ],
   "webStoreData": {
@@ -197,17 +205,19 @@
     },
     {
       "id": 1,
-      "author": "administator",
+      "data": "09 Dec 2022",
       "title": "ITAM&SAMDay is a real success!",
-      "category": "IT-Sandbox",
-      "data": "13 jan 2020",
-      "imageSrc": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+      "category": "IT-Sandboxer",
+      "featuredImage": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+      "bannerImage": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
+      "footerImage": "https://res.cloudinary.com/dieaiknad/image/upload/v1669803551/IT-blog/blog-image-1_lj6rgr.png",
       "shortDesc": "Thinking about the management of IT assets, I remembered one educational example. The manager of IT capabilities in a large company periodically prepared a thick report for management. Once again, he did not bring the report, he decided to check whether it was needed at all. And bla bla bla",
       "text": [
-        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
+        "As I pondered IT asset management, I was reminded of an educational example. The manager of IT capabilities in a large company periodically prepares a fat deduction for management. Once again, he did not bring the deduction, he decided to check whether it was needed at all. After seeing him for several days, he came to the manager and asked: \"I want to calculate that I am ready, not particularly in demand, but what do you really need?\" ",
+        "The manager admitted that the massive countdown is good, but they are not used. I drew on a sheet of paper what I would like to have at hand.",
         "IT asset management, like configuration management, is a core process for others. In the first case, the financial aspect is more important, in the second - operational tasks. Both processes can be overloaded with details and turned into something routine. How to find a balance and make the process truly \"alive\"?",
-        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.",
-        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
+        "Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics. Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone.,Of course, the balance of unification and personal approach is everyone's business. Let's recall the story about the post-war automobile industry: American and Japanese tactics.",
+        "Gradually, the Japanese achieved superiority thanks, among other things, to a balanced balance of unification and production culture. But this rule is not for everyone."
       ]
     },
     {
@@ -346,15 +356,30 @@
       ]
     },
     {
-      "id": "0a6c0565-27a9-40e9-bff5-2899e1ab90ff",
-      "date": "08 Dec 2022",
-      "author": "administratorka",
-      "title": "adminnnn",
-      "category": "adminnn",
-      "featuredImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
-      "bannerImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
-      "footerImage": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
-      "textAbout": "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpgd"
+      "id": "83e499dd-733c-40c7-b583-677d97a73d37",
+      "data": "09 Dec 2022",
+      "title": "IT-Sandboxer just a test",
+      "category": "IT-Sandboxer",
+      "featuredImage": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp",
+      "bannerImage": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp",
+      "footerImage": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp",
+      "shortDesc": "IT-Sandboxer may be just a test or not.",
+      "text": [
+        "IT-Sandboxer IT-SandboxerIT-SandboxerIT-SandboxerIT-SandboxerIT-SandboxerIT-SandboxerIT-SandboxerIT-SandboxerIT-Sandbox"
+      ]
+    },
+    {
+      "id": "4faf1e09-9efa-4958-999e-d1c9598a646a",
+      "data": "09 Dec 2022",
+      "title": "83e499dd-733c-40c7-b583-677d97a73d37",
+      "category": "IT-Sandboxer",
+      "featuredImage": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp",
+      "bannerImage": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp",
+      "footerImage": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp",
+      "shortDesc": "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.whttps://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webpebp",
+      "text": [
+        "https://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webphttps://bobbyhadz.com/images/blog/javascript-split-string-by-newline/banner.webp"
+      ]
     }
   ],
   "newsIds": [

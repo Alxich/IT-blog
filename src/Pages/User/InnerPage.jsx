@@ -173,52 +173,37 @@ function InnerPage({
                 <Link
                   to="/news/category"
                   className="category"
-                  onClick={() => setNewsCatRequest(newsStoreData.category)}
+                  onClick={() =>
+                    setNewsCatRequest(newsStoreData && newsStoreData.category)
+                  }
                 >
-                  <p>{newsStoreData.category}</p>
+                  <p>{newsStoreData && newsStoreData.category}</p>
                 </Link>
                 <div className="date">
-                  <p>{newsStoreData.data}</p>
+                  <p>{newsStoreData && newsStoreData.data}</p>
                 </div>
               </div>
               <div className="title">
-                <h1>{newsStoreData.title}</h1>
+                <h1>{newsStoreData && newsStoreData.title}</h1>
               </div>
               <div className="text-block">
-                {newsStoreData.text
-                  .map((n, i, arr) => ({ textOne: n, textTwo: arr[i + 1] }))
-                  .filter((_n, i) => i % 2 === 0)
-                  .map((item, i) => {
-                    return (
-                      <div
-                        className={classnames("text", {
-                          more: i % 3 !== 0,
-                        })}
-                        key={`${item}__${i}`}
-                      >
-                        {i % 2 !== 0 && newsRealtedData && (
-                          <Link
-                            to="/newspage"
-                            onClick={() => setPosthRequest(newsRealtedData.id)}
-                            className="related"
-                          >
-                            <div className="thumbnail">
-                              <img
-                                src={newsRealtedData.imageSrc}
-                                alt="related-bonus-info"
-                                referrerPolicy="no-referrer"
-                              />
-                            </div>
-                            <div className="title">
-                              <p>{newsRealtedData.title}</p>
-                            </div>
-                          </Link>
-                        )}
-                        <p>{item.textOne}</p>
-                        <p>{item.textTwo}</p>
-                      </div>
-                    );
-                  })}
+                {newsStoreData &&
+                  newsStoreData.text
+                    .map((n, i, arr) => ({ textOne: n, textTwo: arr[i + 1] }))
+                    .filter((_n, i) => i % 2 === 0)
+                    .map((item, i) => {
+                      return (
+                        <div
+                          className={classnames("text", {
+                            more: i % 3 !== 0,
+                          })}
+                          key={`${item}__${i}`}
+                        >
+                          <p>{item.textOne}</p>
+                          <p>{item.textTwo}</p>
+                        </div>
+                      );
+                    })}
               </div>
               <div className="banner-content">
                 <img

@@ -16,6 +16,7 @@ function AddPost({ type, images, editPost }) {
   const sendStatus = useSelector(({ postsData }) => postsData.isLoaded);
   const post = useSelector(({ postsData }) => postsData.post);
   const news = useSelector(({ newsData }) => newsData.newOne);
+  const localId = uuidv4();
 
   const [localData, setLocalData] = React.useState({
     id: post.length > 0 ? post[0].id : uuidv4(),
@@ -24,7 +25,8 @@ function AddPost({ type, images, editPost }) {
     featuredImage: "",
     bannerImage: "",
     footerImage: "",
-    textAbout: "",
+    shortDesc: "",
+    text: "",
   });
 
   React.useEffect(() => {
@@ -36,36 +38,36 @@ function AddPost({ type, images, editPost }) {
     setLocalData(
       type !== true
         ? {
-            id: post.length >= 0 ? post[0].id : uuidv4(),
+            id: post.length >= 0 ? post[0].id : localId,
             title: post.length >= 0 ? post[0].title : "",
             category: post.length >= 0 ? post[0].category : "",
-            featuredImage: post.length >= 0 ? post[0].imageSrc : "",
-            bannerImage: post.length >= 0 ? post[0].imageSrc : "",
-            footerImage: post.length >= 0 ? post[0].imageSrc : "",
-            textAbout: post.length >= 0 ? post[0].text : "",
+            featuredImage: post.length >= 0 ? post[0].featuredImage : "",
+            bannerImage: post.length >= 0 ? post[0].bannerImage : "",
+            footerImage: post.length >= 0 ? post[0].footerImage : "",
+            shortDesc: post.length >= 0 ? post[0].shortDesc : "",
+            text: post.length >= 0 ? post[0].text : "",
           }
         : {
-            id: news.length >= 0 ? news[0].id : uuidv4(),
+            id: news.length >= 0 ? news[0].id : localId,
             title: news.length >= 0 ? news[0].title : "",
             category: news.length >= 0 ? news[0].category : "",
-            featuredImage: news.length >= 0 ? news[0].imageSrc : "",
-            bannerImage: news.length >= 0 ? news[0].imageSrc : "",
-            footerImage: news.length >= 0 ? news[0].imageSrc : "",
-            textAbout: news.length >= 0 ? news[0].text : "",
+            featuredImage: news.length >= 0 ? news[0].featuredImage : "",
+            bannerImage: news.length >= 0 ? news[0].bannerImage : "",
+            footerImage: news.length >= 0 ? news[0].footerImage : "",
+            shortDesc: news.length >= 0 ? news[0].shortDesc : "",
+            text: news.length >= 0 ? news[0].text : "",
           }
     );
   }, [news, post, type]);
 
-  console.log(localData);
-
   const [localDataError, setLocalDataError] = React.useState({
-    id: uuidv4(),
     title: false,
     category: false,
     featuredImage: false,
     bannerImage: false,
     footerImage: false,
-    textAbout: false,
+    shortDesc: false,
+    text: false,
   });
 
   const [sendPostStatus, setSendPostStatus] = React.useState(false);
@@ -78,7 +80,8 @@ function AddPost({ type, images, editPost }) {
       localDataError.featuredImage !== true &&
       localDataError.bannerImage !== true &&
       localDataError.footerImage !== true &&
-      localDataError.textAbout !== true
+      localDataError.text !== true &&
+      localDataError.shortDesc !== true
     ) {
       return true;
     } else {
@@ -88,25 +91,35 @@ function AddPost({ type, images, editPost }) {
 
   const clearLocalData = () => {
     setLocalData({
-      id: uuidv4(),
       title: "",
       category: "",
       featuredImage: "",
       bannerImage: "",
       footerImage: "",
-      textAbout: "",
+      shortDesc: "",
+      text: "",
     });
   };
 
   React.useEffect(() => {
     const sendFunction = () => {
       type !== true
-        ? dispatch(postAdminPost(localData))
-        : dispatch(postAdminNews(localData));
+        ? dispatch(
+            postAdminPost({
+              ...localData,
+              text: localData.text.split(/\r?\n/),
+            }, localId)
+          )
+        : dispatch(
+            postAdminNews({
+              ...localData,
+              text: localData.text.split(/\r?\n/),
+            }, localId)
+          );
 
       type !== true
-        ? dispatch(assignNewRelated("post", localData.id))
-        : dispatch(assignNewRelated("news", localData.id));
+        ? dispatch(assignNewRelated("post", localId))
+        : dispatch(assignNewRelated("news", localId));
 
       setSendPostStatus(false);
     };
@@ -220,20 +233,36 @@ function AddPost({ type, images, editPost }) {
             });
         break;
 
-      case "textAbout":
+      case "text":
         setLocalData({
           ...localDataCopy,
-          textAbout: value,
+          text: value,
         });
-        localDataCopy.textAbout.length < 4 ||
-        localDataCopy.textAbout.length === 0
+        localDataCopy.text.length < 4 || localDataCopy.text.length === 0
           ? setLocalDataError({
               ...localDataErrorCopy,
-              textAbout: true,
+              text: true,
             })
           : setLocalDataError({
               ...localDataErrorCopy,
-              textAbout: false,
+              text: false,
+            });
+        break;
+
+      case "shortDesc":
+        setLocalData({
+          ...localDataCopy,
+          shortDesc: value,
+        });
+        localDataCopy.shortDesc.length < 4 ||
+        localDataCopy.shortDesc.length === 0
+          ? setLocalDataError({
+              ...localDataErrorCopy,
+              shortDesc: true,
+            })
+          : setLocalDataError({
+              ...localDataErrorCopy,
+              shortDesc: false,
             });
         break;
 
@@ -316,14 +345,26 @@ function AddPost({ type, images, editPost }) {
         </div>
         <div className="item">
           <div className="title">
+            <h3>Give a short description for your story</h3>
+          </div>
+          <textarea
+            name="shortDesc"
+            placeholder="Just keyboard and you. Magic beggins..."
+            value={localData.shortDesc}
+            onChange={(e) => handlerChangeValue(e)}
+            className={classNames({ invalid: localDataError.shortDesc })}
+          />
+        </div>
+        <div className="item">
+          <div className="title">
             <h3>Tell us about your feeling...</h3>
           </div>
           <textarea
-            name="textAbout"
+            name="text"
             placeholder="Just keyboard and you. Magic beggins..."
-            value={localData.textAbout}
+            value={localData.text}
             onChange={(e) => handlerChangeValue(e)}
-            className={classNames({ invalid: localDataError.textAbout })}
+            className={classNames({ invalid: localDataError.text })}
           />
         </div>
         <button className="button send" onClick={(e) => runSendMessageFunc(e)}>
