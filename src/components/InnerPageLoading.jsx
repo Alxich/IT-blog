@@ -5,10 +5,10 @@ function InnerPageLoading(props) {
   return (
     <ContentLoader
       height="1000"
-      width="1390"
       viewBox="0 0 1390 900"
       backgroundColor="#f3f3f3"
       foregroundColor="#d6dcff"
+      style={{ width: "100%", maxWidth: "1390px" }}
       {...props}
     >
       <rect x="15" y="15" rx="4" ry="4" width="1390" height="300"></rect>

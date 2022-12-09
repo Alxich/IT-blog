@@ -5,11 +5,11 @@ function NewsLoading({ props }) {
   return (
     <ContentLoader
       speed={2}
-      width={329}
       height={100}
       viewBox="0 0 329 107"
       backgroundColor="#f3f3f3"
       foregroundColor="#d6dcff"
+      style={{ width: "100%", maxWidth: "329px" }}
       {...props}
     >
       <rect x="0" y="15" rx="5" ry="5" width="329" height="10" />

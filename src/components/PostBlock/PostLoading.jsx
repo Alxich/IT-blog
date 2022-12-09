@@ -5,11 +5,11 @@ function PostLoading(props) {
   return (
     <ContentLoader
       speed={2}
-      width={1000}
       height={268}
       viewBox="0 0 1000 268"
       backgroundColor="#f3f3f3"
       foregroundColor="#d6dcff"
+      style={{ width: "100%", maxWidth: "1000px" }}
       {...props}
     >
       <rect x="1" y="12" rx="8" ry="8" width="86" height="37"></rect>
