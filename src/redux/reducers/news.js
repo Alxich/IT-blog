@@ -1,5 +1,6 @@
 const initialState = {
   news: [],
+  sidebar: [],
   newOne: {},
   newsId: [],
   related: [],
@@ -37,10 +38,17 @@ const newsData = (state = initialState, action) => {
         isLoaded: true,
       };
 
-    case "FETCH_RELATED_POST":
+    case "FETCH_RELATED_NEWS":
       return {
         ...state,
         related: action.payload,
+        isLoaded: true,
+      };
+
+    case "FETCH_SIDEBAR_NEWS":
+      return {
+        ...state,
+        sidebar: action.payload,
         isLoaded: true,
       };
 
@@ -50,11 +58,11 @@ const newsData = (state = initialState, action) => {
         isLoaded: action.payload,
       };
 
-      case "SET_UPLOAD_NEWS":
-        return {
-          ...state,
-          isLoaded: true,
-        };
+    case "SET_UPLOAD_NEWS":
+      return {
+        ...state,
+        isLoaded: true,
+      };
 
     default:
       return state;

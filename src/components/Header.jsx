@@ -141,7 +141,9 @@ function Header({
               <li key={`${item}__${i}`}>
                 <NavLink
                   activeclassname="active"
-                  to={item.toLowerCase().replace(" ", "")}
+                  to={
+                    item === "Home" ? "/" : item.toLowerCase().replace(" ", "")
+                  }
                 >
                   {item}
                 </NavLink>

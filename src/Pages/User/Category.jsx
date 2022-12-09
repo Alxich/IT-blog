@@ -20,6 +20,7 @@ function Category({
   const dispatch = useDispatch();
   const localPosts = useSelector(({ postsData }) => postsData.searchResult);
   const localNews = useSelector(({ newsData }) => newsData.searchResult);
+  const localNewsAll = useSelector(({ newsData }) => newsData.news);
 
   const loadTurnOf = () => {
     setIsLoaded(false);
@@ -74,7 +75,7 @@ function Category({
             ? localPosts.length > 0
               ? true
               : false
-            : false
+            : true
         );
       }, 1500);
     }
@@ -98,13 +99,13 @@ function Category({
       ? fetchCatNewsLoad !== true
         ? localPosts.slice(indexOfFirstRecord, indexOfLastRecord)
         : localNews.slice(indexOfFirstRecord, indexOfLastRecord)
-      : localNews.slice(indexOfFirstRecord, indexOfLastRecord);
+      : localNewsAll.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(
     fetchType !== true
       ? fetchCatNewsLoad !== true
         ? localPosts.length / recordsPerPage
         : localNews.length / recordsPerPage
-      : localNews.length / recordsPerPage
+      : localNewsAll.length / recordsPerPage
   );
 
   return (

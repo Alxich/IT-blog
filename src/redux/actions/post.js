@@ -229,8 +229,6 @@ export const setPostsData = (ids, count) => async (dispatch) => {
       return item.id;
     });
 
-    console.log(arrayCopy);
-
     arrayCopy.sort(function () {
       return Math.random() > 0.5;
     });

@@ -146,7 +146,7 @@ export const postAdminNews = (data, localId) => (dispatch) => {
         });
 };
 
-export const fetchNews = (count) => async (dispatch) => {
+export const fetchNews = (count, type) => async (dispatch) => {
   dispatch({
     type: "SET_LOADED_NEWS",
     payload: false,
@@ -175,13 +175,15 @@ export const fetchNews = (count) => async (dispatch) => {
             "Access-Control-Allow-Origin": "*",
           },
         })
-        .then(async ({ data }) => await dispatch(setNewsData(data, count)))
+        .then(
+          async ({ data }) => await dispatch(setNewsData(data, count, type))
+        )
         .catch((error) => {
           console.log(error);
         });
 };
 
-export const setNewsData = (ids, count) => async (dispatch) => {
+export const setNewsData = (ids, count, type) => async (dispatch) => {
   function getValues(getQa) {
     dispatch({
       type: "SET_LOADED_NEWS",
@@ -197,14 +199,16 @@ export const setNewsData = (ids, count) => async (dispatch) => {
           "Access-Control-Allow-Origin": "*",
         },
       })
-      .then(async ({ data }) => await dispatch(setNews(data)))
+      .then(async ({ data }) => {
+        dispatch(setNews(data));
+        type === "sidebar" && dispatch(setSidebarNews(data));
+      })
       .catch((error) => {
         console.log(error);
       });
   }
 
   function randomArray(arr, len) {
-
     const arrayCopy = arr.map((item) => {
       return item.id;
     });
@@ -238,6 +242,11 @@ export const setNews = (data) => ({
 
 export const setAllNews = (data) => ({
   type: "FETCH_ALL_NEWS",
+  payload: data,
+});
+
+export const setSidebarNews = (data) => ({
+  type: "FETCH_SIDEBAR_NEWS",
   payload: data,
 });
 

@@ -6,10 +6,10 @@ import NewsLoading from "./NewsLoading";
 
 function Sidebar({ images, localStoreStage, setPosthRequest }) {
   const dispatch = useDispatch();
-  const localNews = useSelector(({ newsData }) => newsData.news);
+  const localNews = useSelector(({ newsData }) => newsData.sidebar);
 
   React.useEffect(() => {
-    dispatch(fetchNews(3));
+    dispatch(fetchNews(3, "sidebar"));
   }, [dispatch]);
 
   const [isLoaded, setIsLoaded] = React.useState(false);
