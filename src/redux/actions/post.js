@@ -225,15 +225,21 @@ export const setPostsData = (ids, count) => async (dispatch) => {
   }
 
   function randomArray(arr, len) {
-    arr.sort(function () {
+    const arrayCopy = arr.map((item) => {
+      return item.id;
+    });
+
+    console.log(arrayCopy);
+
+    arrayCopy.sort(function () {
       return Math.random() > 0.5;
     });
 
-    arr.length = len;
+    arrayCopy.length = len;
 
-    return arr;
+    return arrayCopy;
   }
-
+  
   const idArray = randomArray(ids, count);
 
   const arrayToShow = () => {

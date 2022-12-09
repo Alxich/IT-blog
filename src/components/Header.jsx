@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header({
   menuOpen,
@@ -13,6 +14,8 @@ function Header({
   const { logo, userLogo, icons } = images;
   const navigation = localStoreStage.navigation.header;
   const navigationFooter = localStoreStage.navigation.footer;
+
+  const headerIconAvatar = useSelector(({ admin }) => admin.avatar);
 
   const handleChangeMenuStatus = (menuOpen) => {
     menuOpen ? setMenuOpen(false) : setMenuOpen(true);
@@ -113,7 +116,7 @@ function Header({
           </div>
           <NavLink activeclassname="active" to="/admin" className="user-logo">
             <img
-              src={userLogo}
+              src={headerIconAvatar ? headerIconAvatar : userLogo}
               alt="userIconLogo"
               referrerPolicy="no-referrer"
             />

@@ -100,6 +100,27 @@ export const assignNewRelated = (postType, id) => (dispatch) => {
       dispatch(setAdminLogout());
       dispatch(setAdminValid(false));
     });
+
+    postType === "post"
+      ? axios
+          .post(`/postsIds/`, {
+            id,
+          })
+          .catch((error) => {
+            console.log(error);
+            dispatch(setAdminLogout());
+            dispatch(setAdminValid(false));
+          })
+      : axios
+          .post(`/newsIds/`, {
+            id,
+          })
+          .catch((error) => {
+            console.log(error);
+            dispatch(setAdminLogout());
+            dispatch(setAdminValid(false));
+          });
+
 };
 
 export const setupAdminSession =

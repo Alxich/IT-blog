@@ -22,7 +22,7 @@ function AddPost({ type, images, editPost }) {
     id: post.length > 0 ? post[0].id : uuidv4(),
     title: "",
     category: "",
-    featuredImage: "",
+    imageSrc: "",
     bannerImage: "",
     footerImage: "",
     shortDesc: "",
@@ -35,35 +35,46 @@ function AddPost({ type, images, editPost }) {
   }, [dispatch, editPost, type]);
 
   React.useEffect(() => {
-    setLocalData(
-      type !== true
-        ? {
-            id: post.length >= 0 ? post[0].id : localId,
-            title: post.length >= 0 ? post[0].title : "",
-            category: post.length >= 0 ? post[0].category : "",
-            featuredImage: post.length >= 0 ? post[0].featuredImage : "",
-            bannerImage: post.length >= 0 ? post[0].bannerImage : "",
-            footerImage: post.length >= 0 ? post[0].footerImage : "",
-            shortDesc: post.length >= 0 ? post[0].shortDesc : "",
-            text: post.length >= 0 ? post[0].text : "",
-          }
-        : {
-            id: news.length >= 0 ? news[0].id : localId,
-            title: news.length >= 0 ? news[0].title : "",
-            category: news.length >= 0 ? news[0].category : "",
-            featuredImage: news.length >= 0 ? news[0].featuredImage : "",
-            bannerImage: news.length >= 0 ? news[0].bannerImage : "",
-            footerImage: news.length >= 0 ? news[0].footerImage : "",
-            shortDesc: news.length >= 0 ? news[0].shortDesc : "",
-            text: news.length >= 0 ? news[0].text : "",
-          }
-    );
-  }, [news, post, type]);
+    editPost > -1 &&
+      setLocalData(
+        type !== true
+          ? {
+              id: editPost > -1 && post.length >= 0 ? post[0].id : localId,
+              title: editPost > -1 && post.length >= 0 ? post[0].title : "",
+              category:
+                editPost > -1 && post.length >= 0 ? post[0].category : "",
+              imageSrc:
+                editPost > -1 && post.length >= 0 ? post[0].imageSrc : "",
+              bannerImage:
+                editPost > -1 && post.length >= 0 ? post[0].bannerImage : "",
+              footerImage:
+                editPost > -1 && post.length >= 0 ? post[0].footerImage : "",
+              shortDesc:
+                editPost > -1 && post.length >= 0 ? post[0].shortDesc : "",
+              text: editPost > -1 && post.length >= 0 ? post[0].text : "",
+            }
+          : {
+              id: editPost > -1 && news.length >= 0 ? news[0].id : localId,
+              title: editPost > -1 && news.length >= 0 ? news[0].title : "",
+              category:
+                editPost > -1 && news.length >= 0 ? news[0].category : "",
+              imageSrc:
+                editPost > -1 && news.length >= 0 ? news[0].imageSrc : "",
+              bannerImage:
+                editPost > -1 && news.length >= 0 ? news[0].bannerImage : "",
+              footerImage:
+                editPost > -1 && news.length >= 0 ? news[0].footerImage : "",
+              shortDesc:
+                editPost > -1 && news.length >= 0 ? news[0].shortDesc : "",
+              text: editPost > -1 && news.length >= 0 ? news[0].text : "",
+            }
+      );
+  }, [editPost, localId, news, post, type]);
 
   const [localDataError, setLocalDataError] = React.useState({
     title: false,
     category: false,
-    featuredImage: false,
+    imageSrc: false,
     bannerImage: false,
     footerImage: false,
     shortDesc: false,
@@ -71,13 +82,14 @@ function AddPost({ type, images, editPost }) {
   });
 
   const [sendPostStatus, setSendPostStatus] = React.useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [sendStatusLocal, setSendStatusLocal] = React.useState(false);
 
   const valuesPassed = () => {
     if (
       localDataError.title !== true &&
       localDataError.category !== true &&
-      localDataError.featuredImage !== true &&
+      localDataError.imageSrc !== true &&
       localDataError.bannerImage !== true &&
       localDataError.footerImage !== true &&
       localDataError.text !== true &&
@@ -93,7 +105,7 @@ function AddPost({ type, images, editPost }) {
     setLocalData({
       title: "",
       category: "",
-      featuredImage: "",
+      imageSrc: "",
       bannerImage: "",
       footerImage: "",
       shortDesc: "",
@@ -105,16 +117,22 @@ function AddPost({ type, images, editPost }) {
     const sendFunction = () => {
       type !== true
         ? dispatch(
-            postAdminPost({
-              ...localData,
-              text: localData.text.split(/\r?\n/),
-            }, localId)
+            postAdminPost(
+              {
+                ...localData,
+                text: localData.text.split(/\r?\n/),
+              },
+              localId
+            )
           )
         : dispatch(
-            postAdminNews({
-              ...localData,
-              text: localData.text.split(/\r?\n/),
-            }, localId)
+            postAdminNews(
+              {
+                ...localData,
+                text: localData.text.split(/\r?\n/),
+              },
+              localId
+            )
           );
 
       type !== true
@@ -175,22 +193,22 @@ function AddPost({ type, images, editPost }) {
             });
         break;
 
-      case "featuredImage":
+      case "imageSrc":
         setLocalData({
           ...localDataCopy,
-          featuredImage: value,
+          imageSrc: value,
         });
-        !validator.isURL(localDataCopy.featuredImage, {
+        !validator.isURL(localDataCopy.imageSrc, {
           protocols: ["http", "https"],
           allow_query_components: false,
         })
           ? setLocalDataError({
               ...localDataErrorCopy,
-              featuredImage: true,
+              imageSrc: true,
             })
           : setLocalDataError({
               ...localDataErrorCopy,
-              featuredImage: false,
+              imageSrc: false,
             });
         break;
 
@@ -310,11 +328,11 @@ function AddPost({ type, images, editPost }) {
           </div>
           <input
             type="text"
-            name="featuredImage"
+            name="imageSrc"
             placeholder="What's the story ! Give it a image now"
-            value={localData.featuredImage}
+            value={localData.imageSrc}
             onChange={(e) => handlerChangeValue(e)}
-            className={classNames({ invalid: localDataError.featuredImage })}
+            className={classNames({ invalid: localDataError.imageSrc })}
           />
         </div>
         <div className="item">

@@ -75,6 +75,7 @@ function AdminInterface({
         localStoreStage={localStoreStage}
         setCurrentPage={setCurrentPage}
         adminName={adminName}
+        setEditPost={setEditPost}
       />
       <div id="admin-content">
         <div className="open-bar" onClick={() => handleOpenBar(openBar)}>

@@ -26,7 +26,7 @@ function InnerPage({
   const { nextNews, previosNews } = localStoreStage.texts.navigation;
 
   const newsStoreData = useSelector(({ newsData }) => newsData.newOne[0]);
-  const newsRealtedData = useSelector(({ newsData }) => newsData.related[0]);
+  // const newsRealtedData = useSelector(({ newsData }) => newsData.related[0]);
 
   const postStoreData = useSelector(({ postsData }) => postsData.post[0]);
   const postRealtedData = useSelector(({ postsData }) => postsData.related[0]);
@@ -38,7 +38,6 @@ function InnerPage({
     setIsLoaded(false);
     dispatch(fetchPost(postRequest));
     dispatch(fetchNewOne(postRequest));
-    dispatch(fetchRelatedPost(postRequest));
   }, [dispatch, postRequest]);
 
   React.useEffect(() => {
@@ -70,11 +69,17 @@ function InnerPage({
   }, [isLoaded, loadedTarget, loadedNewsTarget]);
 
   return isLoaded ? (
-    postRequest > -1 ? (
+    postRequest ? (
       !fetchType ? (
         <>
           <div id="banner" className="inner">
-            <img src={banner} alt="page-banner" referrerPolicy="no-referrer" />
+            <img
+              src={
+                postStoreData.bannerImage ? postStoreData.bannerImage : banner
+              }
+              alt="page-banner"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div className="container page-height flex-row flex-stretch flex-space content-use">
             <div id="content">
@@ -133,7 +138,11 @@ function InnerPage({
               </div>
               <div className="banner-content">
                 <img
-                  src={bannerEnd}
+                  src={
+                    postStoreData.footerImage
+                      ? postStoreData.footerImage
+                      : bannerEnd
+                  }
                   alt="content-banner"
                   referrerPolicy="no-referrer"
                 />
