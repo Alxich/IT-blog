@@ -1,11 +1,12 @@
 import classNames from "classnames";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAdmin } from "../../redux/actions/admin";
+import { fetchAdmin, registerAdmin } from "../../redux/actions/admin";
 
 function Login({ images, localStoreStage }) {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = React.useState(false);
+  const [isTapRegister, setIsTapRegister] = React.useState(false);
   const [actionTrigered, setActionTrigered] = React.useState(false);
   const [localData, setLocalData] = React.useState({
     name: "",
@@ -16,7 +17,7 @@ function Login({ images, localStoreStage }) {
     password: false,
   });
 
-  const { title, form } = localStoreStage.texts.admin.login;
+  const { title, titleRegister, form } = localStoreStage.texts.admin.login;
 
   const loginIcon = images.icons.open;
   const loadIcon = images.icons.load;
@@ -40,7 +41,17 @@ function Login({ images, localStoreStage }) {
 
   React.useEffect(() => {
     const sendFunction = () => {
-      dispatch(fetchAdmin(localData));
+      isTapRegister
+        ? dispatch(
+            registerAdmin({
+              avatar: localStoreStage.images.userLogo,
+              relatedPost: [],
+              relatedNews: [],
+              login: localData.name,
+              password: localData.password,
+            })
+          )
+        : dispatch(fetchAdmin(localData));
       setActionTrigered(false);
       clearLocalData();
     };
@@ -112,7 +123,7 @@ function Login({ images, localStoreStage }) {
   return (
     <div id="login">
       <div className="title">
-        <h1>{title}</h1>
+        <h1>{isTapRegister ? titleRegister : title}</h1>
       </div>
       <form>
         <input
@@ -132,13 +143,24 @@ function Login({ images, localStoreStage }) {
           className={classNames({ invalid: localDataError.password })}
         />
         <button className="button send" onClick={(e) => runSendMessageFunc(e)}>
-          <span>{form.button}</span>
+          <span>{isTapRegister ? form.buttonRegister : form.button}</span>
           <img
             src={actionTrigered ? (isLoaded ? loginIcon : loadIcon) : loginIcon}
             alt="arrow-send"
             referrerPolicy="no-referrer"
           />
         </button>
+        <div className="link">
+          <a
+            href="#register"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsTapRegister(true);
+            }}
+          >
+            New account ?
+          </a>
+        </div>
       </form>
     </div>
   );

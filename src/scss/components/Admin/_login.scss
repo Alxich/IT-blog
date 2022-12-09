@@ -16,6 +16,12 @@
     @include main-title(center);
     width: 100%;
   }
+
+  .link {
+    @include small-text(left);
+    margin: 15px 0 0 0;
+    color: $purple;
+  }
 }
 
 @media only screen and (max-width: 630px) {

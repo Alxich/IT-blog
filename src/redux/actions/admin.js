@@ -12,6 +12,7 @@ export const fetchAdmin =
     axios
       .get(`/users?login=${name}`)
       .then(({ data }) => {
+        console.log(data);
         const serverPassword = data[0].password;
 
         const dataLocal = {
@@ -52,6 +53,26 @@ export const fetchAdmin =
       });
   };
 
+export const registerAdmin = (data) => (dispatch) => {
+  dispatch({
+    type: "SET_ADMIN_LOADED",
+    payload: false,
+  });
+
+  const session = uuidv4();
+
+  axios
+    .post(`/users`, { id: uuidv4(), session: session, ...data })
+    .then(({ data }) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(setAdminLogout());
+      dispatch(setAdminValid(false));
+    });
+};
+
 export const fetchAdminRelated = (name) => (dispatch) => {
   axios
     .get(`/users?login=${name}`)
@@ -82,7 +103,7 @@ export const assignNewRelated = (postType, id) => (dispatch) => {
     .put(`/users/${dataLocal.id}`, {
       type: dataLocal.type,
       id: dataLocal.id,
-      login: dataLocal.login,
+      login: dataLocal.name,
       password: dataLocal.password,
       relatedPost:
         postType === "post"
@@ -101,26 +122,25 @@ export const assignNewRelated = (postType, id) => (dispatch) => {
       dispatch(setAdminValid(false));
     });
 
-    postType === "post"
-      ? axios
-          .post(`/postsIds/`, {
-            id,
-          })
-          .catch((error) => {
-            console.log(error);
-            dispatch(setAdminLogout());
-            dispatch(setAdminValid(false));
-          })
-      : axios
-          .post(`/newsIds/`, {
-            id,
-          })
-          .catch((error) => {
-            console.log(error);
-            dispatch(setAdminLogout());
-            dispatch(setAdminValid(false));
-          });
-
+  postType === "post"
+    ? axios
+        .post(`/postsIds/`, {
+          id,
+        })
+        .catch((error) => {
+          console.log(error);
+          dispatch(setAdminLogout());
+          dispatch(setAdminValid(false));
+        })
+    : axios
+        .post(`/newsIds/`, {
+          id,
+        })
+        .catch((error) => {
+          console.log(error);
+          dispatch(setAdminLogout());
+          dispatch(setAdminValid(false));
+        });
 };
 
 export const setupAdminSession =

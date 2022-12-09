@@ -57,8 +57,8 @@ function AdminInterface({
 
   React.useEffect(() => {
     if (loginProceed === true && idsIsFetched === true) {
-      dispatch(fetchAdminPost(adminPosts));
-      dispatch(fetchAdminNews(adminNews));
+      adminPosts && dispatch(fetchAdminPost(adminPosts));
+      adminNews && dispatch(fetchAdminNews(adminNews));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminNews, adminPosts, dispatch]);
@@ -94,6 +94,7 @@ function AdminInterface({
                 images={images}
                 homePosts={homePosts}
                 homeNews={homeNews}
+                adminName={adminName}
                 setPosthRequest={setPosthRequest}
                 setPostCatRequest={setPostCatRequest}
                 setNewsCatRequest={setNewsCatRequest}
