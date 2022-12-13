@@ -224,21 +224,6 @@ function AccountSettings({ images, adminName }) {
             className={classNames({ invalid: localDataError.password })}
           />
         </div>
-        {accountType !== "admin" && (
-          <div className="item">
-            <div className="title">
-              <h3>Delete your account ?</h3>
-            </div>
-            <button className="button delete">
-              <span className="text">Delete my account</span>
-              <img
-                src={binIcon}
-                alt="Oh no you will delete this acc"
-                referrerPolicy="no-referrer"
-              />
-            </button>
-          </div>
-        )}
         <div className="item">
           <button
             className="button delete"

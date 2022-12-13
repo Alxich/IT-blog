@@ -69,7 +69,7 @@ function InnerPage({
   }, [isLoaded, loadedTarget, loadedNewsTarget]);
 
   return isLoaded ? (
-    postRequest ? (
+    postRequest !== null || postRequest < 0 || postRequest !== false ? (
       !fetchType ? (
         <>
           <div id="banner" className="inner">

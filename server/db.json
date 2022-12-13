@@ -4,8 +4,6 @@
       "id": "ee0e9e9e9e",
       "login": "admin",
       "password": "admin12345",
-      "avatar": "https://www.nicepng.com/png/detail/162-1626559_photo-one-punch-man-steam-avatar.png",
-      "session": "8958160b-30f9-46ec-b249-30576b92e0ce",
       "relatedPost": [
         0,
         1,
@@ -36,16 +34,17 @@
         1,
         2,
         3,
-        "a80ac3c9-da4a-4ec0-babb-9603a99943f9"
-      ]
+        "a80ac3c9-da4a-4ec0-babb-9603a99943f9",
+        "d9d92744-a2f1-4fad-b628-de47df723191"
+      ],
+      "avatar": "https://www.nicepng.com/png/detail/162-1626559_photo-one-punch-man-steam-avatar.png",
+      "session": "9767217c-3f5b-4186-aa13-98806a64e4c5"
     },
     {
       "id": "ad6bb716-e00a-435c-9a27-8a112cdc2657",
       "login": "Alexanism",
       "password": "alex12345",
-      "relatedPost": [
-        "1886fcad-c05e-4c42-b031-24d895f22a5f"
-      ],
+      "relatedPost": ["1886fcad-c05e-4c42-b031-24d895f22a5f"],
       "relatedNews": [],
       "avatar": "https://res.cloudinary.com/dieaiknad/image/upload/v1670592743/IT-blog/default-icon_n9s47i.jpg",
       "session": "56ec94e7-184f-4ba8-9936-99afbd0ccee7"
@@ -87,18 +86,8 @@
       "userLogo": "https://res.cloudinary.com/dieaiknad/image/upload/v1670592743/IT-blog/default-icon_n9s47i.jpg"
     },
     "navigation": {
-      "header": [
-        "Home",
-        "About us",
-        "Contacts",
-        "Search"
-      ],
-      "footer": [
-        "About us",
-        "Gallery",
-        "News",
-        "Contacts"
-      ],
+      "header": ["Home", "About us", "Contacts", "Search"],
+      "footer": ["About us", "Gallery", "News", "Contacts"],
       "admin": [
         {
           "name": "Add new post",
@@ -453,6 +442,9 @@
     },
     {
       "id": "2"
+    },
+    {
+      "id": "d9d92744-a2f1-4fad-b628-de47df723191"
     }
   ],
   "news": [
